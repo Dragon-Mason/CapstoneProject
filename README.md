@@ -15,5 +15,7 @@ So, we will use the datasets in [this website](https://www.ncdc.noaa.gov/data-ac
 
 To reduce the number of data cells for analysis without losing fidelity (i.e. accuracy), we will combine adjacent 20kmx20km cells to make 40kmx40km. 
 
+[This file](explore_data.py) is the code of data exploration.
+
 
 
