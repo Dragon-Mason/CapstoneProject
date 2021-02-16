@@ -116,7 +116,7 @@ url3 = 'https://www.ncei.noaa.gov/data/rapid-refresh/access/rap-252-20km/analysi
 name3 = 'rap_252_20201211_1900_000.grb2'
 grib_urls_000.extend([url3])
 grib_names_000.extend([name3])
-len(grib_urls_000) # 2183
+len(grib_urls_000) # 2184
 
 # 7. Export files
 with open('grib_urls.txt', 'w') as f:
