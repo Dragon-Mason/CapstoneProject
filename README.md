@@ -10,7 +10,7 @@ So, we will use the datasets in [this website](https://www.ncdc.noaa.gov/data-ac
 - Grid/Scale: RAP	252 (20km) - Domain
 - Time range: From 08/01/2020 to 01/31/2021
 - [Inventory of files](https://www.nco.ncep.noaa.gov/pmb/products/rap/rap.t00z.awp252pgrbf00.grib2.shtml)
-- Horizontal grid: 113*151 cells
+- Horizontal grid: 225*301 cells
 - Vertical pressure levels: from 10000 Pa to 100000 Pa in units of 2500 Pa: 37 levels
 
 To reduce the number of data cells for analysis without losing fidelity (i.e. accuracy), we will combine adjacent 20kmx20km cells to make 40kmx40km. 
