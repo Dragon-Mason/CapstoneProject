@@ -1,7 +1,8 @@
 # CapstoneProject
 Machine Learning Forecasting of Ice Super Saturated Regio ns (ISSR) in the Atmosphere
 
-## Data Sets
+# Dataset
+## Overview
 Website of [RAP](https://rapidrefresh.noaa.gov/)
 
 Originally, we want to use the data with **40-km resolution** (Horizontal grid: 225*301 cells) and **pressure levels** (the third row) in [this website](https://www.nco.ncep.noaa.gov/pmb/products/rap/). However, the provided [NCEP FTP SERVER](ftp://ftp.ncep.noaa.gov/pub/data/nccf/com/rap/prod) stores the real-time data. It only includes the data of past 2 days. And there is only [the archive of hybrid (native) grids](http://soostrc.comet.ucar.edu/data/grib/rap/), which don’t have variable “relative humidity”.  
