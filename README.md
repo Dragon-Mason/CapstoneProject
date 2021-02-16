@@ -26,7 +26,9 @@ To download all grib2 files from 11/01/2020 to 01/30/2021, please
 - Download the two txt files first: [grib_urls.txt](grib_urls.txt) and [grib_names.txt](grib_names.txt)
 - Download and run the .py file: [download_data.py](download_data.py)
 
-Totally, there are 2183 files. The size of each one is around 9 MB. The size of all file is estimated as 19 GB.
+Ideally, there are (30+31+30)*24=2184 files. But the file of 2020/12/11 19:00 +000 is missing in the database. So, there are only 2,183 files left.
+
+The size of each one is around 9 MB. The size of all file is estimated as 19 GB.
 
 
 
