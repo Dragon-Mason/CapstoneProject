@@ -18,10 +18,11 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 
 [This file](explore_data.py) is the code of data exploration.
 
-Retrieve all links and names of grib2 files from 11/01/2020 to 01/30/2021
-- [This file](
-- [This file](grib_urls.txt) include links of all files.
-- [This file](grib_names.txt) include names of all files.
+## Download datasets
+
+[This](retrieve_links_names.py) is the code to export [links](grib_urls.txt) and [names](grib_names.txt) of all grib2 files from 11/01/2020 to 01/30/2021.
+
+
 
 
 
