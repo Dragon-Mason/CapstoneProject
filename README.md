@@ -22,6 +22,10 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 
 [This](retrieve_links_names.py) is the code to export [links](grib_urls.txt) and [names](grib_names.txt) of all grib2 files from 11/01/2020 to 01/30/2021.
 
+To download all grib2 files from 11/01/2020 to 01/30/2021, please
+- Download the two txt files first: [grib_urls.txt](grib_urls.txt) and [grib_names.txt](grib_names.txt)
+- Download and run the .py file: [download_data.py](download_data.py)
+
 
 
 
