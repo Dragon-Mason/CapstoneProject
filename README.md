@@ -9,7 +9,7 @@ Originally, we want to use the data with **40-km resolution** (Horizontal grid: 
 So, we will use the datasets in [this website](https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/rapid-refresh-rap). 
 - Grid/Scale: RAP	252 (20km) - Domain
 - Time range: From 11/01/2020 to 01/30/2021
-- 2020/12/11 19:00 +000 is missing
+- The file of 2020/12/11 19:00 +000 is missing. So, we use the file of 2020/12/11 18:00 +001 to estimate the file of 2020/12/11 19:00 +000
 - [Inventory of files](https://www.nco.ncep.noaa.gov/pmb/products/rap/rap.t00z.awp252pgrbf00.grib2.shtml)
 - Horizontal grid: 225*301 cells
 - Vertical pressure levels: from 10000 Pa to 100000 Pa in units of 2500 Pa: 37 levels
@@ -26,9 +26,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 - Download the two txt files first: [grib_urls.txt](grib_urls.txt) and [grib_names.txt](grib_names.txt)
 - Download and run the .py file: [download_data.py](download_data.py)
 
-Ideally, there are (30+31+30)*24=2184 files. But the file of 2020/12/11 19:00 +000 is missing in the database. So, there are only 2,183 files left.
-
-The size of each one is around 9 MB. The size of all file is estimated as **19 GB**.
+There are (30+31+30)*24=2184 files. The size of each one is around 9 MB. The size of all files is estimated as **19 GB**.
 
 
 
