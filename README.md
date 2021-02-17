@@ -10,7 +10,7 @@ Originally, we want to use the data with **40-km resolution** (Horizontal grid: 
 So, we will use the datasets in [this website](https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/rapid-refresh-rap). 
 - Grid/Scale: RAP	252 (20km) - Domain
 - Time range: From 11/01/2020 to 01/30/2021
-- The file of 2020/12/11 19:00 +000 is missing. So, **we use the file of 2020/12/11 18:00 +001 to estimate the file of 2020/12/11 19:00 +000**
+- The data at 19:00 on 2020/12/11 is missing. So, we use the 1-hour forecasting data at 18:00 to estimate the data at 19:00.
 - [Inventory of files](https://www.nco.ncep.noaa.gov/pmb/products/rap/rap.t00z.awp252pgrbf00.grib2.shtml)
 - Horizontal grid: 225*301 cells
 - Vertical pressure levels: from 10000 Pa to 100000 Pa in units of 2500 Pa: 37 levels
