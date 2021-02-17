@@ -52,12 +52,15 @@ There are (31+30+31+30+31+30)*24=4392 files. The size of each one is around 9 MB
 2. Combine cells, label issr
 3. Output a csv file for each grib2 file:
 4. [Code](data_processing.py)
-5. 
+
 Estimated time: 68s each grib2 file
+
 Estimated size: 73.1 Mb each csv file
+
 Totally: 4392 files
 
 **To save time, only clean the data at midnight and noon**
+
 Midnight and noon: 366 files, 7 hour
 
 
