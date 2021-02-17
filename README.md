@@ -52,6 +52,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
     - Totally: 4392 files
     - **To save time, only clean the data at midnight and noon**
     - Midnight and noon: 366 files, 7 hour
+    - 183 Days
 
 
 
