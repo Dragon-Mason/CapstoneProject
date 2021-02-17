@@ -25,12 +25,12 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 2. Use `pygrib` to parse the data
 
 
-[This](retrieve_links_names.py) is the code to export [links](grib_urls.txt) and [names](grib_names.txt) of all grib2 files from 11/01/2020 to 01/30/2021.
+[This](collect_links_names.py) is the code to export [links](linkFile.txt) and [names](nameFile.txt) of all grib2 files from 11/01/2020 to 01/30/2021.
 
 **To download all grib2 files from 11/01/2020 to 01/30/2021**, please
 - Download and run the .py file: [download_data.py](download_data.py)
 
-There are (30+31+30)*24=2184 files. The size of each one is around 9 MB. The size of all files is estimated as **19 GB**.
+There are (31+30+31+30+31+30)*24=4392 files. The size of each one is around 9 MB. The size of all files is estimated as **40 GB**.
 
 
 
