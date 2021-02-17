@@ -32,7 +32,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 ## 1.3. Data Processing
 
 1. Retrieve and create 12 variables for each grib2 file
-    - "datatime_id": V1, 
+    - "date_id": V1, 
     - "date": V2, 
     - "hour": V3, 
     - "pressure_level": V4, 
