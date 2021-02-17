@@ -94,7 +94,7 @@ for i in midnight_noon:
                 geopotential_height = (HGT_values[2*x][2*y] + HGT_values[2*x+1][2*y] + HGT_values[2*x][2*y+1] + HGT_values[2*x+1][2*y+1])/4 # V9
                 temperature = (TMP_values[2*x][2*y] + TMP_values[2*x+1][2*y] + TMP_values[2*x][2*y+1] + TMP_values[2*x+1][2*y+1])/4  # V10
                 relative_humidity = (RH_values[2*x][2*y] + RH_values[2*x+1][2*y] + RH_values[2*x][2*y+1] + RH_values[2*x+1][2*y+1])/4 # V11
-                if (temperature <= 233) & (relative_humidity >= 100):
+                if (temperature <= 233) & (relative_humidity >= 95):
                     # https://esd.copernicus.org/articles/6/555/2015/
                     ISSR = 'Y' # V12
                 else:
