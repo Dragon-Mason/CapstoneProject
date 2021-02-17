@@ -28,6 +28,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 [This](collect_links_names.py) is the code to export [links](linkFile.txt) and [names](nameFile.txt) of all grib2 files from 11/01/2020 to 01/30/2021.
 
 **To download all grib2 files from 11/01/2020 to 01/30/2021**, please
+- Download the two files first: [linkFile.txt](linkFile.txt) and [nameFile.txt](nameFile.txt)
 - Download and run the .py file: [download_data.py](download_data.py)
 
 There are (31+30+31+30+31+30)*24=4392 files. The size of each one is around 9 MB. The size of all files is estimated as **40 GB**.
