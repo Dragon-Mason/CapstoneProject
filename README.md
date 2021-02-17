@@ -37,18 +37,18 @@ There are (31+30+31+30+31+30)*24=4392 files. The size of each one is around 9 MB
 ## 1.3. Data Processing
 
 1. Retrieve and create 12 variables for each grib2 file
-  - "datatime_id": V1, 
-  - "date": V2, 
-  - "hour": V3, 
-  - "pressure_level": V4, 
-  - "lat_id": V5, 
-  - "lon_id": V6, 
-  - "latitude": V7, 
-  - "longitude": V8, 
-  - "geopotential_height": V9, 
-  - "temperature": V10, 
-  - "relative_humidity": V11, 
-  - "ISSR": V12
+    - "datatime_id": V1, 
+    - "date": V2, 
+    - "hour": V3, 
+    - "pressure_level": V4, 
+    - "lat_id": V5, 
+    - "lon_id": V6, 
+    - "latitude": V7, 
+    - "longitude": V8, 
+    - "geopotential_height": V9, 
+    - "temperature": V10, 
+    - "relative_humidity": V11, 
+    - "ISSR": V12
 2. Combine cells, label issr
 3. Output a csv file for each grib2 file:
 4. [Code](data_processing.py)
