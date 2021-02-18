@@ -83,7 +83,7 @@ for i in midnight_noon:
         HGT_values = HGT.values
         TMP_lats, TMP_lons = TMP.latlons()
         
-        # Combine cells and store the data in a dataframe
+        # Combine cells and store the data in lists
         # drop the last(highest) altitude and the last(eastest) longitude
         for x in range(112):
             lat_id = x+1 # V5
