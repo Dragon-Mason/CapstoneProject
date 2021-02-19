@@ -60,7 +60,7 @@ for i in range(len(grib_names)):
 # for i in range(len(grib_names)):
 for i in midnight_noon:
     # datetime_id = i+1 
-    date_id = i//2 + 1 # V1
+    date_id = i//24 + 1 # V1
     grib_name = grib_names[i]
     split_name = grib_name.split('_')
     date = split_name[2]  # V2
