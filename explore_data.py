@@ -13,6 +13,10 @@ Created on Sun Feb 14 15:00:12 2021
 
 import pygrib
 from urllib.request import urlretrieve
+import os
+
+# change the direction first
+os.chdir('/Volumes/Long_long/DAEN690')
 
 # download and open the data
 url = 'https://www.ncei.noaa.gov/data/rapid-refresh/access/rap-252-20km/analysis/202011/20201101/rap_252_20201101_0000_000.grb2'
