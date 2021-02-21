@@ -32,7 +32,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 ## 1.3. Data Processing
 
 
-1. Retrieve and create 12 variables for each grib2 file
+1. Retrieve and create 12 variables for each grib2 file{
             "datetime_id": V0,
             "date_id": V1, 
             "date": V2, 
@@ -46,7 +46,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
             "temperature": V10, 
             "relative_humidity_water": V11, 
             "relative_humidity_ice": V12,
-            "ISSR": V13
+            "ISSR": V13}
 2. Combine cells, label issr
 3. Output a csv file with all records for each grib2 file
 4. Output a csv file with only 'Y' records for each grib2 file
