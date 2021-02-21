@@ -10,7 +10,7 @@ from urllib.request import urlretrieve
 import os
 
 # change the direction first
-os.chdir('/Volumes/Long_long/DAEN690')
+os.chdir('/Volumes/Long_long/DAEN690Dragon/GRIB2')
 
 # load links and names of grib2 files
 with open("nameFile.txt", "r") as file1:
@@ -21,6 +21,6 @@ with open("linkFile.txt", "r") as file2:
     grib_links.pop()
 
 # download all grib2 files
-for i in range(len(grib_names)):
+for i in range(0, 456):
     urlretrieve(grib_links[i], grib_names[i])
 
