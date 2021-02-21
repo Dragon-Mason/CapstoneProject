@@ -5,7 +5,7 @@ Created on Tue Feb 16 15:52:59 2021
 
 @author: longzhang
 
-1. Retrieve and create 12 variables for each grib2 file
+1. Retrieve and create 14 variables for each grib2 file
             "datetime_id": V0,
             "date_id": V1, 
             "date": V2, 
@@ -21,8 +21,8 @@ Created on Tue Feb 16 15:52:59 2021
             "relative_humidity_ice": V12,
             "ISSR": V13
 2. Combine cells, label issr
-
-3. Output a csv file for each grib2 file:
+3. Output a csv file with all records for each grib2 file
+4. Output a csv file with only 'Y' records for each grib2 file
 
 Estimated time: 75s each grib2 file
 Estimated size: 86 Mb for all records/ 200 Kb for ‘Y’ records
