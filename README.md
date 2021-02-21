@@ -57,7 +57,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 6. Task Assignment:
     - Only modify the range in for-loop to download data and clean data
 
-|Task|Days(229)|ID(229*24=5496)|Date|Python Range|Assignee|
+|Task|Days(229)|ID(229*24=5496)|Date|Python for-loop Range|Assignee|
 |----|---------|---------------|----|------------|--------|
 |Task1|19|1 - 456|20200517 - 20200604 |range(0,456)|Wei Wang|
 |Task2|19|457 - 912|20200605 - 20200623|range(456, 912)|Wei Wang|
