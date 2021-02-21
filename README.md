@@ -55,7 +55,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
     - Estimated size: 86 Mb for all records/ 200 Kb for ‘Y’ records
     - Totally: 5496 files
 6. Task Assignment:
-
+    - Only modify the range in for-loop to download data and clean data
 
 |Task|Days(229)|ID(229*24=5496)|Date|Python Range|Assignee|
 |----|---------|---------------|----|------------|--------|
