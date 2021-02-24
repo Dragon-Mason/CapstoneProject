@@ -73,6 +73,8 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 |Task12|20|5017 - 5496|20201212 - 20201231|range(5016, 5496)|Long|
 
 
+## 1.4 Data Exploration
+
 
 
 
