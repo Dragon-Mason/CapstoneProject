@@ -259,7 +259,7 @@ task4
 
 ggplot(data = task4, mapping = aes(x = pressure_level, y =avg_volume_of_ISSR, fill = month)) +
   geom_bar(stat = "identity", position = "dodge") + 
-  labs(title = "Volume of ISSRs at different pressure levels by months",
+  labs(title = "Volume of ISSRs in different months by pressure levels",
        x = "Pressure Levels (Pa)",
        y = "Volume of ISSRs (%)") +
   theme(axis.text.x = element_text(angle = 45, face="bold"),
@@ -270,7 +270,7 @@ ggplot(data = task4, mapping = aes(x = pressure_level, y =avg_volume_of_ISSR, fi
 
 ggplot(data = task4, mapping = aes(x = month, y =avg_volume_of_ISSR, fill = pressure_level)) +
   geom_bar(stat = "identity", position = "dodge") + 
-  labs(title = "Volume of ISSRs at different pressure levels by months",
+  labs(title = "Volume of ISSRs in different months by pressure levels",
        x = "Pressure Levels (Pa)",
        y = "Volume of ISSRs (%)") +
   theme(axis.text.x = element_text(face="bold"),
