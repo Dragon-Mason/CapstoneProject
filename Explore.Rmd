@@ -1,0 +1,193 @@
+---
+title: "Statistical Analysis for ISSRs"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    toc_depth: 2 
+    number_sections: false 
+    df_print: paged
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 0. Preparation
+
+```{r}
+library(tidyverse)
+setwd("/Volumes/Long_long/DAEN690Dragon/YES_CSV")
+overall_summary <- read.csv("overall_summary.csv")
+layer_summary <- read.csv("layer_summary.csv")
+
+```
+
+# 1. Statistical Analysis for the 3D Grid
+
+# 1.1. Calculate hourly/daily percentage change
+
+```{r}
+# calculate hourly/daily percentage change 
+overall_summary <- overall_summary %>%
+  mutate(hourly_pct_change = (num_of_ISSR/lag(num_of_ISSR) - 1) * 100,
+         daily_pct_change = (num_of_ISSR/lag(num_of_ISSR, 24) - 1) * 100) %>%
+  relocate(hourly_pct_change, .before = ceiling) %>%
+  relocate(daily_pct_change, .before = ceiling)
+overall_summary 
+```
+
+## 1.2. Trend of volume_of_ISSR
+
+
+```{r}
+task2 <- overall_summary %>%
+  mutate(month = floor(date/100)%%100)
+task2$month<-factor(task2$month)
+
+ggplot(data = task2, mapping = aes(x = datetime_id, y = volume_of_ISSR, fill = month)) +
+  geom_bar(stat = "identity") +
+  theme( axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+  ylab("volume_of_ISSR (%)") + xlab("Hourly Datetime") +
+  ggtitle("Trend of hourly updated volume_of_ISSR")
+```
+
+## 1.3. Trend of daily average `volume_of_ISSR` 
+  
+```{r}
+
+task3 <- overall_summary %>%
+  group_by(date_id, date) %>%
+  summarise(avg_volume_of_ISSR = mean(volume_of_ISSR)) %>%
+  ungroup() %>%
+  mutate(pct_change = (avg_volume_of_ISSR/lag(avg_volume_of_ISSR) - 1) * 100) %>%
+  mutate(month = floor(date/100)%%100)
+task3$date<-factor(task3$date)
+task3$month<-factor(task3$month)
+task3
+
+ggplot(data = task3, mapping = aes(x = date, y = avg_volume_of_ISSR, fill = month)) +
+  geom_bar(stat = "identity") +
+  theme( axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+  ylab("avg_volume_of_ISSR (%)") + xlab("Dates") +
+  ggtitle("Trend of daily average volume_of_ISSR")
+      
+
+```
+
+```{r}
+
+task5 <- task3 %>%
+  group_by(month) %>%
+  summarise(avg_volume_of_ISSR = mean(avg_volume_of_ISSR))
+task5
+
+ggplot(data = task5, mapping = aes(x = month, y = avg_volume_of_ISSR, fill= month)) +
+  geom_bar(stat = "identity") +
+  ylab("avg_volume_of_ISSR (%)") + xlab("Months") +
+  ggtitle("Monthly average volume_of_ISSR")
+      
+
+```
+
+# 1.4. Midnight and Noon
+
+```{r}
+midnight_noon <- overall_summary %>%
+  filter(hour == 0 | hour == 12)
+midnight_noon
+
+midnight_noon$hour <- factor(midnight_noon$hour)
+ggplot(midnight_noon, aes(x = date, y = volume_of_ISSR, col=hour)) + 
+  geom_line() +
+  ylab("volume_of_ISSR (%)") + xlab("Dates") +
+  ggtitle("Comparasion of volume_of_ISSR between midnight and noon")
+```
+
+# 1.5. Ceilings and floors by months
+
+```{r}
+overall_summary
+```
+
+
+```{r}
+
+ceiling_floor <- overall_summary %>%
+  select(datetime_id, date_id, date, hour, ceiling, floor)
+# ceiling_floor$datetime_id <- factor(ceiling_floor$datetime_id)
+ceiling_floor
+
+ggplot() + 
+  geom_line(data = ceiling_floor, aes(x = datetime_id, y = ceiling), color = "blue") +
+  geom_line(data = ceiling_floor, aes(x = datetime_id, y = floor), color = "red") +
+  xlab('Dates') +
+  ylab('Pressure Levels')
+  
+```
+
+
+
+
+
+# 2. Statistical Analysis for Layers/Horizontal Grids
+
+```{r}
+layer_summary
+```
+
+# 2.1. Volume of ISSRs (%) at different pressure lavels by months
+
+```{r}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+
+task4 <- layer_summary %>%
+  mutate(month = floor(date/100)%%100) %>%
+  left_join(month_days_df, by = "month") %>%
+  group_by(month, pressure_level) %>%
+  summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/min(month_days) ) %>%
+  arrange(pressure_level)
+task4$pressure_level <- factor(task4$pressure_level)
+task4$month <- factor(task4$month)
+task4
+
+ggplot(data = task4, mapping = aes(x = pressure_level, y =avg_volume_of_ISSR, fill = month)) +
+  geom_bar(stat = "identity", position = "dodge") + 
+  labs(title = "Volume of ISSRs (%) at different pressure levels by months",
+       x = "Pressure Levels (Pa)",
+       y = "Volume of ISSRs (%)") +
+  theme(axis.text.x = element_text(angle = 45, face="bold"),
+        axis.text.y = element_text(face="bold")) +
+  theme(plot.title = element_text(size = 20, face="bold.italic"),
+        axis.title.x = element_text(face="bold"),
+        axis.title.y = element_text(face="bold"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
