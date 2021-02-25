@@ -29,6 +29,11 @@ layer_summary <- read.csv("layer_summary.csv") %>%
 layer_summary
 ```
 
+```{r}
+
+```
+
+
 # 1. Statistical Analysis for the 3D Grid
 
 ## 1.1. Calculate hourly/daily percentage change
@@ -282,17 +287,99 @@ ggplot(data = task4, mapping = aes(x = month, y =avg_volume_of_ISSR, fill = pres
 
 
 
+# 3. Latitude Analysis
+
+```{r}
+library(tidyverse)
+# setwd("/Volumes/Long_long/DAEN690Dragon/YES_CSV")
+latitude_summary <- read.csv("latitude_summary.csv")
+latitude_summary
+```
+
+```{r}
+latitude_year <- latitude_summary %>%
+  group_by(lat_id) %>%
+  summarise(avg_volume_ISSR = sum(count_cells)/(37*150)/24/229*100) 
+latitude_year
+
+ggplot(latitude_year, aes(x = lat_id, y = avg_volume_ISSR)) + 
+  geom_bar(stat = "identity") +
+  ylab("avg_volume_ISSR (%)") + xlab("Latitude ID (from 1 to 120)") +
+  ggtitle("Yearly avg_volume_ISSR at each latitude")
+
+
+```
 
 
 
 
 
+```{r}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+
+latitude_month <- latitude_summary %>%
+  mutate(month = floor(date/100)%%100) %>%
+  left_join(month_days_df, by = "month") %>%
+  group_by(month,lat_id) %>%
+  summarise(avg_volume_ISSR = sum(count_cells)/(37*150)/24/min(month_days)*100) 
+latitude_month
+latitude_month$month <- factor(latitude_month$month)
+
+ggplot(latitude_month, aes(x = lat_id, y = avg_volume_ISSR)) + 
+  geom_bar(stat = "identity") +
+  facet_wrap(~ month, nrow = 2,ncol = 4) +
+  ylab("avg_volume_ISSR (%)") + xlab("Latitude ID (from 1 to 120)") +
+  ggtitle("Monthly avg_volume_ISSR at each latitude")
+
+```
 
 
 
 
+# 4. Longitude Analysis
+
+```{r}
+library(tidyverse)
+# setwd("/Volumes/Long_long/DAEN690Dragon/YES_CSV")
+longitude_summary <- read.csv("longitude_summary.csv")
+longitude_summary
+```
 
 
+```{r}
+longitude_year <- longitude_summary %>%
+  group_by(lon_id) %>%
+  summarise(avg_volume_ISSR = sum(count_cells)/(37*112)/24/229*100) 
+longitude_year
+
+ggplot(longitude_year, aes(x = lon_id, y = avg_volume_ISSR)) + 
+  geom_bar(stat = "identity") +
+  ylab("avg_volume_ISSR (%)") + xlab("Longitude ID (from 1 to 150)") +
+  ggtitle("Yearly avg_volume_ISSR at each longitude")
+
+
+```
+
+```{r}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+
+longitude_month <- longitude_summary %>%
+  mutate(month = floor(date/100)%%100) %>%
+  left_join(month_days_df, by = "month") %>%
+  group_by(month,lon_id) %>%
+  summarise(avg_volume_ISSR = sum(count_cells)/(37*120)/24/min(month_days)*100) 
+longitude_month
+longitude_month$month <- factor(longitude_month$month)
+
+ggplot(longitude_month, aes(x = lon_id, y = avg_volume_ISSR)) + 
+  geom_bar(stat = "identity") +
+  facet_wrap(~ month, nrow = 2,ncol = 4) +
+  ylab("avg_volume_ISSR (%)") + xlab("Longitude ID (from 1 to 150)") +
+  ggtitle("Monthly avg_volume_ISSR at each longitude")
+
+```
 
 
 
