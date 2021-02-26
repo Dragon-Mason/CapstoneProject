@@ -21,11 +21,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tidyverse)
 # setwd("/Volumes/Long_long/DAEN690Dragon/YES_CSV")
-overall_summary <- read.csv("overall_summary.csv") %>%
-  mutate(volume_of_ISSR = volume_of_ISSR*100)
+overall_summary <- read.csv("overall_summary.csv")
 overall_summary
-layer_summary <- read.csv("layer_summary.csv") %>%
-    mutate(volume_of_ISSR = volume_of_ISSR*100)
+layer_summary <- read.csv("layer_summary.csv")
 layer_summary
 ```
 
@@ -61,7 +59,9 @@ ggplot(data = task2, mapping = aes(x = datetime_id, y = volume_of_ISSR, fill = m
   theme( axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
   ylab("volume_of_ISSR (%)") + xlab("Hourly Datetime") +
   ggtitle("Trend of hourly updated volume_of_ISSR")
+
 ```
+
 
 
   
@@ -180,7 +180,6 @@ ggplot(midnight_noon, aes(x = month, y = avg_volume_of_ISSR, col=hour)) +
 ```{r}
 ceiling_floor <- overall_summary %>%
   select(datetime_id, date_id, date, hour, ceiling, floor) %>%
-  rename(ceiling = floor, floor = ceiling) %>%
   pivot_longer(cols = c(ceiling, floor),
                names_to = 'type',
                values_to = 'pressure_level')
