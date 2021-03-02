@@ -1,5 +1,5 @@
 # CapstoneProject
-Machine Learning Forecasting of Ice Super Saturated Regio ns (ISSR) in the Atmosphere
+Machine Learning Forecasting of Ice Super Saturated Regions (ISSR) in the Atmosphere
 
 # 1. Dataset
 ## 1.1. Overview
