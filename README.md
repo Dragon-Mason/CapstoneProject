@@ -82,6 +82,8 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
     - [longitude_summary.csv](longitude_summary.csv) is the count of ISSR cells in each longitude at each datetime.
 - [Explore.Rmd](Explore.Rmd) is a sample of data visualization. Download [Explore.html](Explore.html) to see the output.
 
+## This is a dashboard link
+- please click this link: [Dashboard_try.html](https://rpubs.com/mridwan/732949)
 
 
 
