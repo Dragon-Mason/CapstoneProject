@@ -22,23 +22,20 @@ output:
 
 - Make statistical analysis and visualization for the volumetric evolution of ISSRs in CONUS in 2020.
 - Aims to explore the RAP Analysis data and find out potential patterns about ISSRs, involving the following aspects:
-  - Statistic analysis for the entire 3D grid
-    - Volumetric evolution of ISSR by hour/day/month
-    - Volume of ISSRs at different hours in a day 
-    - Ceilings and floors by hour/day/month
-  - Statistic analysis for horizontal grids
-    - Volume of ISSRs at different pressure levels 
-  - Statistic analysis for vertical grids
-    - Volume of ISSRs at different latitude
-    - Volume of ISSRs at different longitude
+  - Volumetric evolution of ISSR by hour/day/month
+  - Volume of ISSRs at different hours in a day 
+  - Ceilings and floors by hour/day/month
+  - Volume of ISSRs at different pressure levels 
+  - Volume of ISSRs at different latitude
+  - Volume of ISSRs at different longitude
 
 **Backgrond**
 
-1. Contrail-Cirrus Clouds are estimated to contribute 2% of the Earth‘s total anthropogenic global warming. 
-2. Contrail-Cirrus Clouds are formed from the emissions of jet engines under certain atmospheric conditions, like humidity and cold.
-2. These atmospheric conditions are known as Ice Super Saturated Regions (ISSR).
-3. [ISSRs](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2012GL051909) are identified as regions with a **relative humidity with respect to ice above 100%** and a **temperature below 233K** (to avoid regions of supercooled water clouds). 
-4. Studying the volumetric evolution of ISSRs can help to facilitate the design of the air transportation system, thereby helping to prevent climate warming. To be specific, airlines can produce fewer contrail-cirrus clouds by cruising at the time when the volume of ISSRs is low or avoiding crossing ISS regions.
+- Contrail-Cirrus Clouds are estimated to contribute 2% of the Earth‘s total anthropogenic global warming. 
+- Contrail-Cirrus Clouds are formed from the emissions of jet engines under certain atmospheric conditions, like humidity and cold.
+- These atmospheric conditions are known as Ice Super Saturated Regions (ISSR).
+- [ISSRs](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2012GL051909) are identified as regions with a **relative humidity with respect to ice above 100%** and a **temperature below 233K** (to avoid regions of supercooled water clouds). 
+- Studying the volumetric evolution of ISSRs can help to facilitate the design of the air transportation system, thereby helping to prevent climate warming. To be specific, airlines can produce fewer contrail-cirrus clouds by cruising at the time when the volume of ISSRs is low or avoiding crossing ISS regions.
 
 
 
