@@ -73,7 +73,6 @@ longitude_summary <- read.csv("longitude_summary.csv")
 
 # 2. Statistic analysis for the entire 3D grid
 
-Tabel for the analysis:
 
 ```{r echo=FALSE}
 # calculate hourly/daily percentage change 
@@ -87,6 +86,8 @@ overall_summary
 
 ## 2.1. Volumetric evolution of ISSR by hour/day/month
 
+- The volume of the ISSR tends to be higher in the late Fall and the early Winter season.
+- Specifically, the monthly average volume of ISSR in December is two times higher than in August.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 task2 <- overall_summary %>%
@@ -101,10 +102,6 @@ ggplot(data = task2, mapping = aes(x = datetime_id, y = volume_of_ISSR, fill = m
   ggtitle("Trend of hourly updated volume_of_ISSR")
 ```
 
-
-The volume of the ISSR trend tends to be higher in the late Fall and the early Winter season.
-
-Specifically, the monthly average volume of ISSR in December is two times higher than in August.
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -152,6 +149,9 @@ ggplot(data = task5, mapping = aes(x = month, y = avg_volume_of_ISSR, fill= mont
 
 
 ## 2.2. Volume of ISSRs at different hours in a day
+
+- The monthly average volume of ISSR tends to be the highest in the afternoon.
+- In December, the monthly average volume of ISSR at midday is 51 percent higher than that at midnight.
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -220,6 +220,11 @@ ggplot(midnight_noon, aes(x = month, y = avg_volume_of_ISSR, col=hour)) +
 
 ## 2.3. Ceilings and floors by hour/day/month
 
+- The two-line graphs are ceiling and floors at each DateTime and AVG ceiling and floors by month. 
+- Through the overall trend and the trend of each month, we could find the concentration of ceiling and floor from 15000 to 50000.
+- According to the monthly AVG volume of ISSR is the lowest point in August, there is an upward trend as the winter enters.
+- So when mapped to the monthly AVG ceilings and floors, the distance between the two lines in August is the closest.
+- After the winter, the distance between the two gap is getting bigger and bigger.
 
 ```{r echo=FALSE}
 ceiling_floor <- overall_summary %>%
@@ -290,6 +295,11 @@ layer_summary
 ```
 
 ## 3.1. Volume of ISSRs at different pressure levels
+
+- As we could find that before 27500Pa, the volume of ISSR shows an overall growth trend, but when the pressure level is higher than 27500Pa.
+The volume of ISSR shows a dramatic downward trend.
+- When we add each month to the pressure level, with 25,000PA as the dividing point, the Volume of ISSR is mainly formed in summer in high altitude areas, and formed in winter in low altitude areas.
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
