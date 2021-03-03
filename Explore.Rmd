@@ -114,7 +114,7 @@ task3 <- overall_summary %>%
   mutate(month = floor(date/100)%%100)
 task3$date<-factor(task3$date)
 task3$month<-factor(task3$month)
-task3
+# task3
 
 ggplot(data = task3, mapping = aes(x = date, y = avg_volume_of_ISSR, fill = month)) +
   geom_bar(stat = "identity") +
@@ -135,7 +135,7 @@ task5 <- overall_summary %>%
   summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/24/min(month_days))
 
 task5$month<-factor(task5$month)
-task5
+# task5
 
 ggplot(data = task5, mapping = aes(x = month, y = avg_volume_of_ISSR, fill= month)) +
   geom_bar(stat = "identity") +
@@ -155,7 +155,7 @@ midnight_noon <- overall_summary %>%
   select(datetime_id, date_id, date, hour, volume_of_ISSR) %>%
   mutate(month = floor(date/100)%%100) %>%
   filter(hour == 0 | hour == 12)
-midnight_noon
+# midnight_noon
 
 midnight_noon$hour <- factor(midnight_noon$hour)
 ggplot(midnight_noon, aes(x = date, y = volume_of_ISSR, col=hour)) + 
@@ -178,7 +178,7 @@ midnight_noon <- overall_summary %>%
   filter(hour == 0 | hour == 12) %>%
   group_by(month, hour) %>%
   summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/month_days)
-midnight_noon
+# midnight_noon
 
 midnight_noon$hour <- factor(midnight_noon$hour)
 ggplot(midnight_noon, aes(x = month, y = avg_volume_of_ISSR, col=hour)) + 
@@ -202,7 +202,7 @@ midnight_noon <- overall_summary %>%
   group_by(month, hour) %>%
   summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/month_days)
   
-midnight_noon
+# midnight_noon
 
 midnight_noon$hour <- factor(midnight_noon$hour)
 ggplot(midnight_noon, aes(x = month, y = avg_volume_of_ISSR, col=hour)) + 
@@ -222,7 +222,7 @@ ceiling_floor <- overall_summary %>%
   pivot_longer(cols = c(ceiling, floor),
                names_to = 'type',
                values_to = 'pressure_level')
-ceiling_floor
+# ceiling_floor
 
 ggplot(ceiling_floor, aes(x = datetime_id, y = pressure_level, col=type)) + 
   geom_line() +
@@ -240,7 +240,7 @@ ceiling_floor2 <- ceiling_floor %>%
   ungroup() %>%
   mutate(month = floor(date/100)%%100) 
 
-ceiling_floor2
+# ceiling_floor2
 
 ggplot(ceiling_floor2, aes(x = date, y = avg_pressure_level, col=type)) + 
   geom_line() +
@@ -260,7 +260,7 @@ ceiling_floor3 <- ceiling_floor %>%
   left_join(month_days_df, by = "month") %>%
   group_by(month, type) %>%
   summarise(avg_pressure_level = sum(pressure_level)/24/min(month_days))
-ceiling_floor3
+# ceiling_floor3
 
 ggplot(ceiling_floor3, aes(x = month, y = avg_pressure_level, col=type)) + 
   geom_line() +
