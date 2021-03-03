@@ -20,8 +20,8 @@ output:
 
 **Objective:**
 
-1. Make statistical analysis and visualization for the volumetric evolution of ISSRs in CONUS in 2020.
-2. Aims to explore the RAP Analysis data and find out potential patterns about ISSRs, involving the following aspects:
+- Make statistical analysis and visualization for the volumetric evolution of ISSRs in CONUS in 2020.
+- Aims to explore the RAP Analysis data and find out potential patterns about ISSRs, involving the following aspects:
   - Statistic analysis for the entire 3D grid
     - Volumetric evolution of ISSR by hour/day/month
     - Volume of ISSRs at different hours in a day 
@@ -37,19 +37,19 @@ output:
 1. Contrail-Cirrus Clouds are estimated to contribute 2% of the Earth‘s total anthropogenic global warming. 
 2. Contrail-Cirrus Clouds are formed from the emissions of jet engines under certain atmospheric conditions, like humidity and cold.
 2. These atmospheric conditions are known as Ice Super Saturated Regions (ISSR).
-3. [ISSRs](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2012GL051909) are identified as regions with a relative humidity with respect to ice above 100% and a temperature below 233K (to avoid regions of supercooled water clouds). 
+3. [ISSRs](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2012GL051909) are identified as regions with a **relative humidity with respect to ice above 100%** and a **temperature below 233K** (to avoid regions of supercooled water clouds). 
 4. Studying the volumetric evolution of ISSRs can help to facilitate the design of the air transportation system, thereby helping to prevent climate warming. To be specific, airlines can produce fewer contrail-cirrus clouds by cruising at the time when the volume of ISSRs is low or avoiding crossing ISS regions.
 
 
 **Datasets**
 
-1. Dataset Description: Rapid Refresh (RAP) Analysis Data with lambert conformal projection of a 20-km resolution. To reduce the cells for analysis, 4 adjacent 20km*20km cells are combined to make a 40-km resolution grid.
-2. Dataset Owner: the U.S. National Oceanic and Atmospheric Administration (NOAA) 
-3. Dataset Type: open source 
-5. Dataset Size: 50GB (hourly updated data in 229 days, all available archive data in 2020) 
-6. Dataset Time Range: From 5/17/2020 to 12/31/2020 
-7. Dataset Area Range: The contiguous United States (CONUS) 
-8. Dataset Access: [HTTPS server](https://www.ncei.noaa.gov/data/rapid-refresh/access/rap-252-20km/analysis/)
+1. **Dataset Description:** Rapid Refresh (RAP) Analysis Data with lambert conformal projection of a 20-km resolution. To reduce the cells for analysis, 4 adjacent 20km*20km cells are combined to make a 40-km resolution grid.
+2. **Dataset Owner:** the U.S. National Oceanic and Atmospheric Administration (NOAA) 
+3. **Dataset Type:** open source 
+5. **Dataset Size:** 50GB (hourly updated data in 229 days, all available archive data in 2020) 
+6. **Dataset Time Range:** From 5/17/2020 to 12/31/2020 
+7. **Dataset Area Range:** The contiguous United States (CONUS) 
+8. **Dataset Access:** [HTTPS server](https://www.ncei.noaa.gov/data/rapid-refresh/access/rap-252-20km/analysis/)
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
