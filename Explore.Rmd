@@ -296,21 +296,23 @@ latitude_summary <- read.csv("latitude_summary.csv")
 latitude_summary
 ```
 
+This is the latitude summary table. It consists the data of the average volume of the ISSR in whole one year based on each latitude ID. The latitude ID ranges from 1 to 120. Specifically, the latitude ID represents the area which starts from the south to the North area. The smaller the latitude ID value, the closer the area to the South area. Vice versa, the higher ta value of the latitude ID, the closer it is to the North area. 
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 latitude_year <- latitude_summary %>%
   group_by(lat_id) %>%
   summarise(avg_volume_ISSR = sum(count_cells)/(37*150)/24/229*100) 
 latitude_year
+```
 
+The following picture is the visualization of the summary table. The latitude ID is sorted from 1 to 120 which shows the latitude area from the south to the north area. Through the following picture, it can be seen that there is a trend between the average volume of the ISSR and the Latitude.It shows that the closer the area to the north, the higher the average volume of the ISSR according to the whole one year data.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(latitude_year, aes(x = lat_id, y = avg_volume_ISSR)) + 
   geom_bar(stat = "identity") +
   ylab("avg_volume_ISSR (%)") + xlab("Latitude ID (from 1 to 120)") +
   ggtitle("Yearly avg_volume_ISSR at each latitude")
-
-
 ```
-
-
 
 
 
