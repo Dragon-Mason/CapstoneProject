@@ -21,7 +21,7 @@ output:
 library(tidyverse)
 
 # Please modify this directory based on your yes_csv folder
-setwd("D:/George Mason University/5. Spring 2021/DAEN 690/complete_yes_csv")
+# setwd("D:/George Mason University/5. Spring 2021/DAEN 690/complete_yes_csv")
 
 overall_summary <- read.csv("overall_summary.csv")
 overall_summary
