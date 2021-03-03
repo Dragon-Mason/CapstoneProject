@@ -419,7 +419,7 @@ longitude_month
 longitude_month$month <- factor(longitude_month$month)
 ```
 
-The following picture is the visualization of the average ISSR volume in every month as summarized in the previous table. Accoring to the following picture, the trend from the whole months is hard to conclude as the average ISSR volumes is fluctuating in every month. However, there are tendencies that the average volume is getting lower in the middle, which is between West and East area, from October to November 2021.
+The following picture is the visualization of the average ISSR volume in every month as summarized in the previous table. Accoring to the following picture, the trend from the whole months is hard to conclude as the average ISSR volumes is fluctuating in every month. However, there are tendencies that the average volume is getting lower in the middle, which is between West and East area, from October to November 2020.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(longitude_month, aes(x = lon_id, y = avg_volume_ISSR)) + 
