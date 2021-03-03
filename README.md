@@ -83,7 +83,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 - [Explore.Rmd](Explore.Rmd) is a sample of data visualization. Download [Explore.html](Explore.html) to see the output.
 
 ## This is a dashboard link
-- please click this link: [Explore.html](https://rpubs.com/mridwan/733180)
+- please click this link: [Explore.html](https://rpubs.com/mridwan/ISSRDashboard)
 
 
 
