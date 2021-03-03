@@ -18,6 +18,20 @@ output:
 
 # 1. Introduction
 
+**Objective:**
+
+1. Make statistical analysis and visualization for the volumetric evolution of ISSRs in CONUS in 2020.
+2. Aims to explore the RAP Analysis data and find out potential patterns about ISSRs, involving the following aspects:
+  - Statistic analysis for the entire 3D grid
+    - Volumetric evolution of ISSR by hour/day/month
+    - Volume of ISSRs at different hours in a day 
+    - Ceilings and floors by hour/day/month
+  - Statistic analysis for horizontal grids
+    - Volume of ISSRs at different pressure levels 
+  - Statistic analysis for vertical grids
+    - Volume of ISSRs at different latitude
+    - Volume of ISSRs at different longitude
+
 **Backgrond**
 
 1. Contrail-Cirrus Clouds are estimated to contribute 2% of the Earth‘s total anthropogenic global warming. 
@@ -38,17 +52,6 @@ output:
 8. Dataset Access: [HTTPS server](https://www.ncei.noaa.gov/data/rapid-refresh/access/rap-252-20km/analysis/)
 
 
-**Objective:**
-
-1. Make statistical analysis and visualization for the volumetric evolution of ISSRs in CONUS in 2020.
-2. Aims to explore the RAP Rapid Analysis data and find out potential patterns about ISSRs, involving the following aspects:
-  - Volumetric evolution of ISSR by hour/day/month
-  - Volume of ISSRs at different hours in a day 
-  - Ceilings and floors by hour/day/month
-  - Volume of ISSRs at different pressure levels 
-  - Volume of ISSRs at different latitude/longitude
-
-
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 
@@ -56,14 +59,21 @@ library(tidyverse)
 # setwd("D:/George Mason University/5. Spring 2021/DAEN 690/complete_yes_csv")
 
 overall_summary <- read.csv("overall_summary.csv")
-overall_summary
+# overall_summary
 layer_summary <- read.csv("layer_summary.csv")
-layer_summary
+# layer_summary
+latitude_summary <- read.csv("latitude_summary.csv")
+# latitude_summary
+longitude_summary <- read.csv("longitude_summary.csv")
+# longitude_summary
+
 ```
 
-# 1. Statistical Analysis for the 3D Grid
 
-## 1.1. Calculate hourly/daily percentage change
+
+# 2. Statistic analysis for the entire 3D grid
+
+Tabel for the analysis:
 
 ```{r echo=FALSE}
 # calculate hourly/daily percentage change 
@@ -75,7 +85,7 @@ overall_summary <- overall_summary %>%
 overall_summary 
 ```
 
-## 1.2. Trend of volume_of_ISSR
+## 2.1. Volumetric evolution of ISSR by hour/day/month
 
 
 ```{r echo=FALSE}
@@ -321,7 +331,7 @@ ggplot(data = task4, mapping = aes(x = month, y =avg_volume_of_ISSR, fill = pres
 library(tidyverse)
 
 # Please modify this directory based on your yes_csv folder
-setwd("D:/George Mason University/5. Spring 2021/DAEN 690/complete_yes_csv")
+# setwd("D:/George Mason University/5. Spring 2021/DAEN 690/complete_yes_csv")
 
 
 latitude_summary <- read.csv("latitude_summary.csv")
@@ -378,7 +388,7 @@ ggplot(latitude_month, aes(x = lat_id, y = avg_volume_ISSR)) +
 library(tidyverse)
 
 # Please modify this directory based on your yes_csv folder
-setwd("D:/George Mason University/5. Spring 2021/DAEN 690/complete_yes_csv")
+# setwd("D:/George Mason University/5. Spring 2021/DAEN 690/complete_yes_csv")
 
 
 longitude_summary <- read.csv("longitude_summary.csv")
