@@ -1,5 +1,5 @@
 ---
-title: "Statistical Analysis for ISSRs"
+title: "Data Dashboard for ISSRs in CONUS in 2020"
 output:
   html_document:
     toc: true
@@ -14,6 +14,15 @@ output:
 
 ```{r setup, include=FALSE}
 ```
+
+# 1. Backgrond
+
+1. Contrail-Cirrus Clouds are estimated to contribute 2% of the Earth‘s total anthropogenic global warming. They are formed from the emissions of jet engines under certain atmospheric conditions, like humidity and cold.
+4. Ice supersaturated regions (ISSRs) are potential formation regions of contrail cirrus clouds, with values of relative humidity with respect to ice exceeding 100%, occur frequently in the tropopause region.
+
+4. By studying the volume changes of ISSR to predict its future evolution, we can understand the decisions of air transportation systems to improve climate warming.
+
+
 
 # 0. Preparation
 
