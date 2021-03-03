@@ -314,7 +314,7 @@ ggplot(latitude_year, aes(x = lat_id, y = avg_volume_ISSR)) +
   ggtitle("Yearly avg_volume_ISSR at each latitude")
 ```
 
-
+The following table is the summary of the 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
@@ -327,15 +327,16 @@ latitude_month <- latitude_summary %>%
   summarise(avg_volume_ISSR = sum(count_cells)/(37*150)/24/min(month_days)*100) 
 latitude_month
 latitude_month$month <- factor(latitude_month$month)
+```
 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(latitude_month, aes(x = lat_id, y = avg_volume_ISSR)) + 
   geom_bar(stat = "identity") +
   facet_wrap(~ month, nrow = 2,ncol = 4) +
   ylab("avg_volume_ISSR (%)") + xlab("Latitude ID (from 1 to 120)") +
   ggtitle("Monthly avg_volume_ISSR at each latitude")
-
 ```
-
 
 
 
