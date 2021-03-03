@@ -548,6 +548,8 @@ longitude_month
 8. **Dataset Access:** [HTTPS server](https://www.ncei.noaa.gov/data/rapid-refresh/access/rap-252-20km/analysis/)
 9. **Dataset Format:** Grib2
 
+The cleaned data is the csv files with only ISSR cell records since the volume of ISSR is only related to ISSR cells. Therefore, the size of the cleaned data is reduced to 1.21GB from 50GB.
+
 ## overall summary
 
 - **Dashboard Tasks**:
