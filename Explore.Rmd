@@ -338,13 +338,7 @@ ggplot(data = task4, mapping = aes(x = pressure_level, y =avg_volume_of_ISSR, fi
 latitude_summary
 ```
 
-This is the latitude summary table. It consists the data of the average volume of the ISSR in whole one year based on each latitude ID. The latitude ID ranges from 1 to 120. Specifically, the latitude ID represents the area which starts from the south to the North area. The smaller the latitude ID value, the closer the area to the South area. Vice versa, the higher ta value of the latitude ID, the closer it is to the North area. 
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-
-```
-
-The following picture is the visualization of the summary table. The latitude ID is sorted from 1 to 120 which shows the latitude area from the south to the north area. Through the following picture, it can be seen that there is a trend between the average volume of the ISSR and the Latitude.It shows that the closer the area to the north, the higher the average volume of the ISSR according to the whole one year data.
+The following picture is the visualization of the latitude summary table. It consists the data of the average volume of the ISSR in whole one year based on each latitude ID. The latitude ID ranges from 1 to 120. Specifically, the latitude ID represents the area which starts from the south to the North area. The smaller the latitude ID value, the closer the area to the South area. Vice versa, the higher ta value of the latitude ID, the closer it is to the North area. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 latitude_year <- latitude_summary %>%
@@ -358,10 +352,9 @@ ggplot(latitude_year, aes(x = lat_id, y = avg_volume_ISSR)) +
   ggtitle("Yearly avg_volume_ISSR at each latitude")
 ```
 
-The following table shows the summary of the monthly average volume of the ISSR of each latitude. It contains the months, latitude ID, and the average volume of the ISSR. Specifically, it shows the average volume of the ISSR of each latitude ID from month 5, which is May, to month 12, which is December. The year period of these months is 2020.
+The latitude ID is sorted from 1 to 120 which shows the latitude area from the south to the north area. Through the following picture, it can be seen that there is a trend between the average volume of the ISSR and the Latitude.It shows that the closer the area to the north, the higher the average volume of the ISSR according to the whole one year data.
 
-
-The following picture shows the visualization of the average volume of the ISSR in each latitude on every month. In every month, we can see there is an increment trend of the average volume of the ISSR when it gets closer to the North area. It brings a conclusion that the closer to North area, the higher the average volume of the ISSR in every month.
+The plot below shows the visualization of the the monthly average volume of the ISSR of each latitude. It contains the months, latitude ID, and the average volume of the ISSR. Specifically, it shows the average volume of the ISSR of each latitude ID from month 5, which is May, to month 12, which is December. The year period of these months is 2020. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
@@ -381,7 +374,7 @@ ggplot(latitude_month, aes(x = lat_id, y = avg_volume_ISSR)) +
   ylab("avg_volume_ISSR (%)") + xlab("Latitude ID (from 1 to 120)") +
   ggtitle("Monthly avg_volume_ISSR at each latitude")
 ```
-
+In every month, we can see there is an increment trend of the average volume of the ISSR when it gets closer to the North area. It brings a conclusion that the closer to North area, the higher the average volume of the ISSR in every month.
 
 
 ## 4.2. Volume of ISSRs at different longitude
@@ -391,10 +384,7 @@ ggplot(latitude_month, aes(x = lat_id, y = avg_volume_ISSR)) +
 longitude_summary
 ```
 
-This is the summary table of the average volume of the ISSR of each longitude for one year. The table contains the longitude ID and the average volume of the ISSR. The longitude ID ranges from 1 to 150 which represents the higher the value of the longitude ID, the closer the area to the East.
-
-
-The following picture is the visualization of the summary table above. Again, it shows the trend of the average volume of the ISSR from the West to the East area in one year. According to the following picture, it shows there is a decrement of the average ISSR volume in the middle area between the East and the West area.
+The following picture is the visualization of the summary table of the average volume of the ISSR of each longitude for one year. The table contains the longitude ID and the average volume of the ISSR. The longitude ID ranges from 1 to 150 which represents the higher the value of the longitude ID, the closer the area to the East. Again, it shows the trend of the average volume of the ISSR from the West to the East area in one year. According to the following picture, it shows there is a decrement of the average ISSR volume in the middle area between the East and the West area.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 longitude_year <- longitude_summary %>%
@@ -408,10 +398,7 @@ ggplot(longitude_year, aes(x = lon_id, y = avg_volume_ISSR)) +
   ggtitle("Yearly avg_volume_ISSR at each longitude")
 ```
 
-The following table shows the summary of the average ISSR volume over the months based on each longitude ID. The month ranges from month 5, which is May, to month 12, which is December. The year period of these months is 2020.
-
-
-The following picture is the visualization of the average ISSR volume in every month as summarized in the previous table. Accoring to the following picture, the trend from the whole months is hard to conclude as the average ISSR volumes is fluctuating in every month. However, there are tendencies that the average volume is getting lower in the middle, which is between West and East area, from October to November 2020.
+The picture blow is the visualization of the average ISSR volume in every month as summarized in the previous table. Specifically, it shows the summary of the average ISSR volume over the months based on each longitude ID. The month ranges from month 5, which is May, to month 12, which is December. The year period of these months is 2020. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
@@ -432,7 +419,7 @@ ggplot(longitude_month, aes(x = lon_id, y = avg_volume_ISSR)) +
   ggtitle("Monthly avg_volume_ISSR at each longitude")
 ```
 
-
+According to the plot above, the trend from the whole months is hard to conclude as the average ISSR volumes is fluctuating in every month. However, there are tendencies that the average volume is getting lower in the middle, which is between West and East area, from October to November 2020.
 
 
 
