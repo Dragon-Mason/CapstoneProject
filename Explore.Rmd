@@ -41,15 +41,6 @@ output:
 4. Studying the volumetric evolution of ISSRs can help to facilitate the design of the air transportation system, thereby helping to prevent climate warming. To be specific, airlines can produce fewer contrail-cirrus clouds by cruising at the time when the volume of ISSRs is low or avoiding crossing ISS regions.
 
 
-**Datasets**
-
-1. **Dataset Description:** Rapid Refresh (RAP) Analysis Data with lambert conformal projection of a 20-km resolution. To reduce the cells for analysis, 4 adjacent 20km*20km cells are combined to make a 40-km resolution grid.
-2. **Dataset Owner:** the U.S. National Oceanic and Atmospheric Administration (NOAA) 
-3. **Dataset Type:** open source 
-5. **Dataset Size:** 50GB (hourly updated data in 229 days, all available archive data in 2020) 
-6. **Dataset Time Range:** From 5/17/2020 to 12/31/2020 
-7. **Dataset Area Range:** The contiguous United States (CONUS) 
-8. **Dataset Access:** [HTTPS server](https://www.ncei.noaa.gov/data/rapid-refresh/access/rap-252-20km/analysis/)
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -542,6 +533,70 @@ ggplot(longitude_month, aes(x = lon_id, y = avg_volume_ISSR)) +
 longitude_month
 
 ```
+
+
+# Appendix {.tabset}
+
+## Raw data
+
+1. **Dataset Description:** Rapid Refresh (RAP) Analysis Data with lambert conformal projection of a 20-km resolution. To reduce the cells for analysis, 4 adjacent 20km*20km cells are combined to make a 40-km resolution grid.
+2. **Dataset Owner:** the U.S. National Oceanic and Atmospheric Administration (NOAA) 
+3. **Dataset Type:** open source 
+5. **Dataset Size:** **50GB** (hourly updated data in 229 days, all available archive data in 2020) 
+6. **Dataset Time Range:** From 5/17/2020 to 12/31/2020 
+7. **Dataset Area Range:** The contiguous United States (CONUS) 
+8. **Dataset Access:** [HTTPS server](https://www.ncei.noaa.gov/data/rapid-refresh/access/rap-252-20km/analysis/)
+9. **Dataset Format:** Grib2
+
+## overall summary
+
+- **Dashboard Tasks**:
+  - **Section 2**: Volumetric evolution of ISSR  by hour/day/month
+  - **Section 3**: Volume of ISSRs at different hours in a day 
+  - **Section 4**: Ceilings and floors by hour/day/month
+- **Each row**: ISSR volume/floor/ceiling in the entire 3D Grid at one timestamp  
+- **Size**: 749KB
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+overall_summary 
+```
+
+## layer summary
+
+- **Dashboard Tasks**:
+  - **Section 5**: Volume of ISSRs at different pressure levels 
+- **Each row**: ISSR volume in each layer (horizontal grid) at one timestamp  
+- **Size**: 6.6MB
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+layer_summary 
+```
+
+## latitude summary
+
+- **Dashboard Tasks**:
+  - **Section 6**: Volume of ISSRs at different latitude
+- **Each row**: Number of ISSR cells in each latitude (vertical grid parallel to longitude) at one timestamp  
+- **Size**: 13.4MB
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+latitude_summary 
+```
+
+## longitude summary
+
+- **Dashboard Tasks**:
+  - **Section 7**: Volume of ISSRs at different longitude
+- **Each row**: Number of ISSR cells in each longitude (vertical grid parallel to latitude) at one timestamp  
+- **Size**: 16.3MB
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+longitude_summary
+```
+
 
 
 
