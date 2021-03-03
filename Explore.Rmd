@@ -92,10 +92,8 @@ overall_summary
 task2 <- overall_summary %>%
   mutate(month = floor(date/100)%%100)
 task2$month<-factor(task2$month)
-task2
-```
+# task2
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(data = task2, mapping = aes(x = datetime_id, y = volume_of_ISSR, fill = month)) +
   geom_bar(stat = "identity") +
   theme( axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
@@ -108,7 +106,7 @@ The volume of the ISSR trend tends to be higher in the late Fall and the early W
 
 Specifically, the monthly average volume of ISSR in December is two times higher than in August.
 
-  
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 task3 <- overall_summary %>%
   group_by(date_id, date) %>%
@@ -118,20 +116,16 @@ task3 <- overall_summary %>%
   mutate(month = floor(date/100)%%100)
 task3$date<-factor(task3$date)
 task3$month<-factor(task3$month)
-<<<<<<< HEAD
-# task3
-=======
-task3
-```
->>>>>>> d08ae1121789bc1301940e209122d122477aa50e
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+# task3
+
 ggplot(data = task3, mapping = aes(x = date, y = avg_volume_of_ISSR, fill = month)) +
   geom_bar(stat = "identity") +
   theme( axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
   ylab("avg_volume_of_ISSR (%)") + xlab("Dates") +
   ggtitle("Trend of daily average volume_of_ISSR")
 ```
+
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -144,14 +138,9 @@ task5 <- overall_summary %>%
   summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/24/min(month_days))
 
 task5$month<-factor(task5$month)
-<<<<<<< HEAD
-# task5
-=======
-task5
-```
->>>>>>> d08ae1121789bc1301940e209122d122477aa50e
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+# task5
+
 ggplot(data = task5, mapping = aes(x = month, y = avg_volume_of_ISSR, fill= month)) +
   geom_bar(stat = "identity") +
   ylab("avg_volume_of_ISSR (%)") + xlab("Months") +
@@ -162,21 +151,17 @@ ggplot(data = task5, mapping = aes(x = month, y = avg_volume_of_ISSR, fill= mont
 ```
 
 
-## 1.3. Midnight and Noon
+## 2.2. Volume of ISSRs at different hours in a day
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 midnight_noon <- overall_summary %>%
   select(datetime_id, date_id, date, hour, volume_of_ISSR) %>%
   mutate(month = floor(date/100)%%100) %>%
   filter(hour == 0 | hour == 12)
-<<<<<<< HEAD
-# midnight_noon
-=======
-midnight_noon
-```
->>>>>>> d08ae1121789bc1301940e209122d122477aa50e
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+# midnight_noon
+
 midnight_noon$hour <- factor(midnight_noon$hour)
 ggplot(midnight_noon, aes(x = date, y = volume_of_ISSR, col=hour)) + 
   geom_line() +
@@ -233,7 +218,7 @@ ggplot(midnight_noon, aes(x = month, y = avg_volume_of_ISSR, col=hour)) +
 
 
 
-## 1.4. Ceilings and floors by months
+## 2.3. Ceilings and floors by hour/day/month
 
 
 ```{r echo=FALSE}
@@ -298,13 +283,13 @@ ggplot(ceiling_floor3, aes(x = month, y = avg_pressure_level, col=type)) +
 
 
 
-# 2. Statistical Analysis for Layers/Horizontal Grids
+# 3. Statistic analysis for horizontal grids
 
 ```{r echo=FALSE}
 layer_summary
 ```
 
-## 2.1. Volume of ISSRs (%) at different pressure lavels by months
+## 3.1. Volume of ISSRs at different pressure levels
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
@@ -318,7 +303,7 @@ task4 <- layer_summary %>%
   arrange(pressure_level)
 task4$pressure_level <- factor(task4$pressure_level)
 task4$month <- factor(task4$month)
-task4
+# task4
 
 ggplot(data = task4, mapping = aes(x = pressure_level, y =avg_volume_of_ISSR, fill = month)) +
   geom_bar(stat = "identity", position = "dodge") + 
@@ -331,45 +316,42 @@ ggplot(data = task4, mapping = aes(x = pressure_level, y =avg_volume_of_ISSR, fi
         axis.title.x = element_text(face="bold"),
         axis.title.y = element_text(face="bold"))
 
-ggplot(data = task4, mapping = aes(x = month, y =avg_volume_of_ISSR, fill = pressure_level)) +
-  geom_bar(stat = "identity", position = "dodge") + 
-  labs(title = "Volume of ISSRs in different months by pressure levels",
-       x = "Pressure Levels (Pa)",
-       y = "Volume of ISSRs (%)") +
-  theme(axis.text.x = element_text(face="bold"),
-        axis.text.y = element_text(face="bold")) +
-  theme(plot.title = element_text(size = 15, face="bold.italic"),
-        axis.title.x = element_text(face="bold"),
-        axis.title.y = element_text(face="bold"))
+# ggplot(data = task4, mapping = aes(x = month, y =avg_volume_of_ISSR, fill = pressure_level)) +
+#   geom_bar(stat = "identity", position = "dodge") + 
+#   labs(title = "Volume of ISSRs in different months by pressure levels",
+#        x = "Pressure Levels (Pa)",
+#        y = "Volume of ISSRs (%)") +
+#   theme(axis.text.x = element_text(face="bold"),
+#         axis.text.y = element_text(face="bold")) +
+#   theme(plot.title = element_text(size = 15, face="bold.italic"),
+#         axis.title.x = element_text(face="bold"),
+#         axis.title.y = element_text(face="bold"))
 ```
 
 
+# 4. Statistic analysis for vertical grids
 
-# 3. Latitude Analysis
+## 4.1. Volume of ISSRs at different latitude
 
-```{r include=FALSE}
-library(tidyverse)
+```{r echo=FALSE}
 
-# Please modify this directory based on your yes_csv folder
-# setwd("D:/George Mason University/5. Spring 2021/DAEN 690/complete_yes_csv")
-
-
-latitude_summary <- read.csv("latitude_summary.csv")
 latitude_summary
 ```
 
 This is the latitude summary table. It consists the data of the average volume of the ISSR in whole one year based on each latitude ID. The latitude ID ranges from 1 to 120. Specifically, the latitude ID represents the area which starts from the south to the North area. The smaller the latitude ID value, the closer the area to the South area. Vice versa, the higher ta value of the latitude ID, the closer it is to the North area. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-latitude_year <- latitude_summary %>%
-  group_by(lat_id) %>%
-  summarise(avg_volume_ISSR = sum(count_cells)/(37*150)/24/229*100) 
-latitude_year
+
 ```
 
 The following picture is the visualization of the summary table. The latitude ID is sorted from 1 to 120 which shows the latitude area from the south to the north area. Through the following picture, it can be seen that there is a trend between the average volume of the ISSR and the Latitude.It shows that the closer the area to the north, the higher the average volume of the ISSR according to the whole one year data.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+latitude_year <- latitude_summary %>%
+  group_by(lat_id) %>%
+  summarise(avg_volume_ISSR = sum(count_cells)/(37*150)/24/229*100) 
+# latitude_year
+
 ggplot(latitude_year, aes(x = lat_id, y = avg_volume_ISSR)) + 
   geom_bar(stat = "identity") +
   ylab("avg_volume_ISSR (%)") + xlab("Latitude ID (from 1 to 120)") +
@@ -377,6 +359,9 @@ ggplot(latitude_year, aes(x = lat_id, y = avg_volume_ISSR)) +
 ```
 
 The following table shows the summary of the monthly average volume of the ISSR of each latitude. It contains the months, latitude ID, and the average volume of the ISSR. Specifically, it shows the average volume of the ISSR of each latitude ID from month 5, which is May, to month 12, which is December. The year period of these months is 2020.
+
+
+The following picture shows the visualization of the average volume of the ISSR in each latitude on every month. In every month, we can see there is an increment trend of the average volume of the ISSR when it gets closer to the North area. It brings a conclusion that the closer to North area, the higher the average volume of the ISSR in every month.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
@@ -387,13 +372,9 @@ latitude_month <- latitude_summary %>%
   left_join(month_days_df, by = "month") %>%
   group_by(month,lat_id) %>%
   summarise(avg_volume_ISSR = sum(count_cells)/(37*150)/24/min(month_days)*100) 
-latitude_month
+# latitude_month
 latitude_month$month <- factor(latitude_month$month)
-```
 
-The following picture shows the visualization of the average volume of the ISSR in each latitude on every month. In every month, we can see there is an increment trend of the average volume of the ISSR when it gets closer to the North area. It brings a conclusion that the closer to North area, the higher the average volume of the ISSR in every month.
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(latitude_month, aes(x = lat_id, y = avg_volume_ISSR)) + 
   geom_bar(stat = "identity") +
   facet_wrap(~ month, nrow = 2,ncol = 4) +
@@ -403,31 +384,24 @@ ggplot(latitude_month, aes(x = lat_id, y = avg_volume_ISSR)) +
 
 
 
-# 4. Longitude Analysis
+## 4.2. Volume of ISSRs at different longitude
 
-```{r include=FALSE}
-library(tidyverse)
+```{r echo=FALSE}
 
-# Please modify this directory based on your yes_csv folder
-# setwd("D:/George Mason University/5. Spring 2021/DAEN 690/complete_yes_csv")
-
-
-longitude_summary <- read.csv("longitude_summary.csv")
 longitude_summary
 ```
 
 This is the summary table of the average volume of the ISSR of each longitude for one year. The table contains the longitude ID and the average volume of the ISSR. The longitude ID ranges from 1 to 150 which represents the higher the value of the longitude ID, the closer the area to the East.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-longitude_year <- longitude_summary %>%
-  group_by(lon_id) %>%
-  summarise(avg_volume_ISSR = sum(count_cells)/(37*112)/24/229*100) 
-longitude_year
-```
 
 The following picture is the visualization of the summary table above. Again, it shows the trend of the average volume of the ISSR from the West to the East area in one year. According to the following picture, it shows there is a decrement of the average ISSR volume in the middle area between the East and the West area.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+longitude_year <- longitude_summary %>%
+  group_by(lon_id) %>%
+  summarise(avg_volume_ISSR = sum(count_cells)/(37*112)/24/229*100) 
+# longitude_year
+
 ggplot(longitude_year, aes(x = lon_id, y = avg_volume_ISSR)) + 
   geom_bar(stat = "identity") +
   ylab("avg_volume_ISSR (%)") + xlab("Longitude ID (from 1 to 150)") +
@@ -435,6 +409,9 @@ ggplot(longitude_year, aes(x = lon_id, y = avg_volume_ISSR)) +
 ```
 
 The following table shows the summary of the average ISSR volume over the months based on each longitude ID. The month ranges from month 5, which is May, to month 12, which is December. The year period of these months is 2020.
+
+
+The following picture is the visualization of the average ISSR volume in every month as summarized in the previous table. Accoring to the following picture, the trend from the whole months is hard to conclude as the average ISSR volumes is fluctuating in every month. However, there are tendencies that the average volume is getting lower in the middle, which is between West and East area, from October to November 2020.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
@@ -445,13 +422,9 @@ longitude_month <- longitude_summary %>%
   left_join(month_days_df, by = "month") %>%
   group_by(month,lon_id) %>%
   summarise(avg_volume_ISSR = sum(count_cells)/(37*120)/24/min(month_days)*100) 
-longitude_month
+# longitude_month
 longitude_month$month <- factor(longitude_month$month)
-```
 
-The following picture is the visualization of the average ISSR volume in every month as summarized in the previous table. Accoring to the following picture, the trend from the whole months is hard to conclude as the average ISSR volumes is fluctuating in every month. However, there are tendencies that the average volume is getting lower in the middle, which is between West and East area, from October to November 2020.
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(longitude_month, aes(x = lon_id, y = avg_volume_ISSR)) + 
   geom_bar(stat = "identity") +
   facet_wrap(~ month, nrow = 2,ncol = 4) +
