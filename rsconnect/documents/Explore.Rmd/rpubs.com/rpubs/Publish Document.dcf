@@ -6,5 +6,5 @@ server: rpubs.com
 hostUrl: rpubs.com
 appId: https://api.rpubs.com/api/v1/document/733362/4f141a54509b4275a64abfeca2319224
 bundleId: https://api.rpubs.com/api/v1/document/733362/4f141a54509b4275a64abfeca2319224
-url: http://rpubs.com/mridwan/733362/edit
-when: 1614841626.00045
+url: http://rpubs.com/mridwan/733362
+when: 1614918849.94324
