@@ -60,8 +60,8 @@ longitude_summary <- read.csv("longitude_summary.csv")
 
 # 2. Volumetric evolution of ISSR {.tabset}
 
-- The volume of the ISSR tends to be higher in the late Fall and the early Winter season.
-- Specifically, the monthly average volume of ISSR in December is two times higher than in August.
+- In fall (from July to September), the monthly average volume of ISSRs is the smallest.
+  - Specifically, the monthly average volume of ISSR in December is two times higher than that in August.
 
 
 ```{r include=FALSE}
@@ -159,8 +159,12 @@ task5
 
 # 3. Volume of ISSRs at different hours {.tabset}
 
-- The monthly average volume of ISSR tends to be the highest in the afternoon.
-- In December, the monthly average volume of ISSR at midday is 51 percent higher than that at midnight.
+
+- In the plots of `midnight and noon`, volume of ISSRs at noon is higher than that at midnight.
+  - In December, the monthly average volume of ISSR at noon is 51 percent higher than that at midnight.
+- In the plot of `all hours`, 
+  - the monthly average volume of ISSRs tends to be the highest in the afternoon (blue lines). 
+  - the monthly average volume of ISSRs tends to be the lowest in the morning (green lines).
 
 ## midnight and noon 1
 
@@ -254,9 +258,9 @@ midnight_noon
 
 # 4. Ceilings and floors {.tabset}
 
-- The following graphs show the ceiling and floor for each DateTime and the AVG ceiling and floor by day/month. 
-- Looking at the overall trend, we could find the concentration of the ceiling and floor from 15000 to 50000.
-- According to the monthly AVG volume of ISSR, August is the lowest point, with an upward trend as the winter enters. So, when mapped to the monthly AVG ceiling and floor, the distance between the two lines in August is the closest. After the fall, the distance between the two gap is increasing.
+- The following graphs show the ceiling and floor for each datetime and the average ceiling and floor by day/month. 
+- Looking at the overall trend, ISSRs are centered between the pressure level of 15000 Pa and the pressure level of 50000 Pa.
+- According to the monthly average volume of ISSRs, after August (the month with the smallest volume of ISSRs), the floor of ISSRs is dramatically decreased. But the ceiling of ISSRs has only a very small fluctuation.
 
 ## hour
 ```{r echo=FALSE}
@@ -352,7 +356,9 @@ layer_summary
 ```
 
 - We could find that when the pressure level is lower than 27500Pa, the volume of ISSR shows an overall growth trend, but when the pressure level is higher than 27500Pa, the volume of ISSR shows a dramatic downward trend.
-- According to the monthly data at each pressure level, with a cut-off point of 25,000Pa, the Volume of ISSR is mainly formed in summer in high altitude areas (low pressure), while formed in winter in low altitude areas (high pressure).
+- According to the monthly data at each pressure level, 
+  - the volume of ISSRs is the smallest in Winter when the pressure level is smaller than 25,000Pa
+  - the volume of ISSRs is the highest in Winter when the pressure level is greater than 25,000Pa
 - The last table shows the approximate transformation between pressure level and flight level.
 
 ## different pressure levels 
