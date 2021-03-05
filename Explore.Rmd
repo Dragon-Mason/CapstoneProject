@@ -1,5 +1,5 @@
 ---
-title: "Data Dashboard for ISSRs in CONUS in 2020"
+title: "Data Dashboard for ISSRs in CONUS from 05/17/2020 to 12/31/2020"
 output:
   html_document:
     toc: true
@@ -14,6 +14,8 @@ output:
 
 ```{r setup, include=FALSE}
 ```
+
+**DAEN-690-DL3-TeamDragon:** Long, Iwan, Lee, Wei, Wenpeng, Baizhong
 
 
 # 1. Introduction
@@ -260,7 +262,7 @@ midnight_noon
 
 - The following graphs show the ceiling and floor for each datetime and the average ceiling and floor by day/month. 
 - Looking at the overall trend, ISSRs are centered between the pressure level of 15000 Pa and the pressure level of 50000 Pa.
-- According to the monthly average volume of ISSRs, after August (the month with the smallest volume of ISSRs), the floor of ISSRs is dramatically decreased. But the ceiling of ISSRs has only a very small fluctuation.
+- According to the monthly average volume of ISSRs, after August (the month with the smallest volume of ISSRs), the floor of ISSRs is dramatically decreased. But the ceiling of ISSRs has a very small fluctuation.
 
 ## hour
 ```{r echo=FALSE}
