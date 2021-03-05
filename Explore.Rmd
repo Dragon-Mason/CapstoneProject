@@ -424,11 +424,13 @@ latitude_summary
 ## year
 
 **Introduction:**
+
 - The following picture is the visualization of the latitude summary table. It consists the data of the average volume of the ISSR in whole one year based on each latitude ID. 
 - The latitude ID ranges from 1 to 120. Specifically, the latitude ID represents the area which starts from the south to the North area. The smaller the latitude ID value, the closer the area to the South area. Vice versa, the higher ta value of the latitude ID, the closer it is to the North area.
 - The latitude ID is sorted from 1 to 120 which shows the latitude area from the south to the north area. 
 
 **Pattern:**
+
 - The closer the area to the north, the higher the average volume of the ISSR according to the whole one year data.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -451,9 +453,11 @@ latitude_year
 ## month
 
 **Introduction**
+
 - The plot below shows the visualization of the the monthly average volume of the ISSR of each latitude. It contains the months, latitude ID, and the average volume of the ISSR. Specifically, it shows the average volume of the ISSR of each latitude ID from month 5, which is May, to month 12, which is December. The year period of these months is 2020. 
 
 **Pattern**
+
 - In every month, we can see there is an increment trend of the average volume of the ISSR when it gets closer to the North area. It brings a conclusion that the closer to North area, the higher the average volume of the ISSR in every month.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -493,11 +497,13 @@ longitude_summary
 ## year
 
 **Introduction**
+
 - The following picture is the visualization of the summary table of the average volume of the ISSR of each longitude for one year. The table contains the longitude ID and the average volume of the ISSR. 
 - The longitude ID ranges from 1 to 150 which represents the higher the value of the longitude ID, the closer the area to the East. 
 - It shows the trend of the average volume of the ISSR from the West to the East area in one year. 
 
 **Pattern**
+
 - There is a decrement of the average ISSR volume in the middle area between the East and the West area.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -523,9 +529,11 @@ longitude_year
 ## month
 
 **Introduction**
+
 - The picture blow is the visualization of the average ISSR volume in every month as summarized in the previous table. Specifically, it shows the summary of the average ISSR volume over the months based on each longitude ID. The month ranges from month 5, which is May, to month 12, which is December. The year period of these months is 2020. 
 
 **Pattern**
+
 - According to the following plots, the trend from the whole months is hard to conclude as the average ISSR volumes is fluctuating in every month. 
 - However, there are tendencies that the average volume is getting lower in the middle, which is between West and East area, from October to November 2020.
 
