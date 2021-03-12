@@ -15,7 +15,11 @@ output:
 ```{r setup, include=FALSE}
 ```
 
-**DAEN-690-DL3-TeamDragon:** Long, Iwan, Lee, Wei, Wenpeng, Baizhong
+**DAEN-690-DL3-TeamDragon:** Long, Iwan, Lee, Wei, Wenpeng, and Baizhong
+
+**Course Instructor:** Prof. F. Berlin
+
+**Mentors:** Prof. Lance Sherry and Sam Ansari
 
 
 # 1. Introduction
@@ -351,9 +355,10 @@ ceiling_floor3
 
 
 
-# 5. Volume of ISSRs at different pressure levels {.tabset}
+# 5. Volume of ISSRs at different pressure levels or flight levels {.tabset}
 
 ```{r include=FALSE}
+FL <- read.csv("FL.csv")
 layer_summary
 ```
 
@@ -410,13 +415,54 @@ task4
 
 ```
 
+
+
+## different flight levels 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+
+task88 <- layer_summary %>%
+  mutate(month = floor(date/100)%%100) %>%
+  left_join(month_days_df, by = "month") %>%
+  left_join(FL, by = c("pressure_level" = "Pressure")) %>%
+  group_by(month, Flight.Level) %>%
+  summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/min(month_days)/24 ) %>%
+  arrange(Flight.Level)
+task88$Flight.Level <- factor(task88$Flight.Level)
+task88$month <- factor(task88$month)
+# task88
+
+ggplot(data = task88, mapping = aes(x = Flight.Level, y =avg_volume_of_ISSR, fill = month)) +
+  geom_bar(stat = "identity", position = "dodge") + 
+  labs(title = "Volume of ISSRs in different months by flight levels",
+       x = "Flight Levels",
+       y = "Volume of ISSRs (%)") +
+  theme(axis.text.x = element_text(angle = 45, face="bold"),
+        axis.text.y = element_text(face="bold")) +
+  theme(plot.title = element_text(size = 15, face="bold.italic"),
+        axis.title.x = element_text(face="bold"),
+        axis.title.y = element_text(face="bold"))
+
+
+```
+
+## different flight levels(data)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+task88
+
+```
+
 ## pressure level and flight level
 
 The transformation formula is from [this website.](https://en.wikipedia.org/wiki/Atmospheric_pressure#:~:text=As%20elevation%20increases%2C%20there%20is,1%20N%2Fm2)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
-FL <- read.csv("FL.csv")
+
 FL
 
 ```
