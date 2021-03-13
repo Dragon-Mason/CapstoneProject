@@ -82,8 +82,8 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
         - [latitude_summary.csv](latitude_summary.csv) is the count of ISSR cells in each latitude at each datetime.
         - [longitude_summary.csv](longitude_summary.csv) is the count of ISSR cells in each longitude at each datetime.
     - [Explore.Rmd](Explore.Rmd) is the code for dashboard. Download [Explore.html](Explore.html) to see the output.
-    - **Dashboard link:** please click this link: [Explore.html](https://rpubs.com/long97/737625)
-- **Interactive scatter plot for ISS regions at flight level FL360 using Tableau.**
+    - [Dashboard link](https://rpubs.com/long97/737625)
+- **Interactive scatter plot for ISS regions at flight level FL360**
     - Run code [FL360_Cells.R](FL360_Cells.R) on all [Yes_CSV](https://exchangelabsgmu-my.sharepoint.com/personal/lzhang30_masonlive_gmu_edu/_layouts/15/onedrive.aspx?id=%2Fsites%2FDAEN%2D690%2DDragon%2FShared%20Documents&listurl=https%3A%2F%2Fexchangelabsgmu%2Esharepoint%2Ecom%2Fsites%2FDAEN%2D690%2DDragon%2FShared%20Documents) files to generate the records for flight level FL360.
     - Use the result in last step to make the scatter plot in Tableau.
     - [Tableau Plot](https://public.tableau.com/views/VisualizationforISSRsatFL360/VisualizationforISSRegionsatFL360from05172020to12312020?:language=en&:display_count=y&publish=yes&:origin=viz_share_link)
