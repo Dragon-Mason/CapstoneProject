@@ -84,3 +84,28 @@ FL340_summary <- FL340 %>%
 write.csv(FL340_summary,"~/Desktop/master/4 DAEN690/YES_CSV/FL340_summary.csv", row.names = FALSE)
 
 
+### Summary table for ISSR volume at the three layers: FL340, FL360, and FL390
+FL340_360_390 <- data.frame()
+for (i in 1:length(grib_names)) {
+  csv_name <- paste("yes_", grib_names[i], ".csv",sep="")
+  yes_data <- read.csv(csv_name)
+  data <- yes_data %>%
+    filter(pressure_level == 27500|pressure_level == 25000|pressure_level == 30000) %>%
+    mutate(month = date%%10000%/%100,
+           day =  date%%10000%%100) %>%
+    select(datetime_id, date_id, month, day, hour, latitude, longitude) %>%
+    group_by(datetime_id, date_id, month, day, hour) %>%
+    summarise(volume_of_ISSR = n()/112/150/3*100)
+  
+  FL340_360_390 <- bind_rows(FL340_360_390, data)
+  print(i)
+} 
+write.csv(FL340_360_390,"~/Desktop/master/4 DAEN690/YES_CSV/FL340_360_390_summary.csv", row.names = FALSE)
+
+
+
+
+
+
+
+
