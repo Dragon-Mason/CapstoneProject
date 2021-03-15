@@ -76,7 +76,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 ## 1.4 Data Exploration
 
 - **Dashboard**
-    - Directly use the following 5 csv files to make data exploration. 
+    - Directly use the following 7 csv files to make data exploration. 
         - The following four are generated using [summary_tables.R](summary_tables.R), [nameFile.txt](nameFile.txt), and [all datasets with only 'yes' labels](https://exchangelabsgmu-my.sharepoint.com/personal/lzhang30_masonlive_gmu_edu/_layouts/15/onedrive.aspx?id=%2Fsites%2FDAEN%2D690%2DDragon%2FShared%20Documents&listurl=https%3A%2F%2Fexchangelabsgmu%2Esharepoint%2Ecom%2Fsites%2FDAEN%2D690%2DDragon%2FShared%20Documents).
             - [overall_summary.csv](overall_summary.csv) is the volume of ISSRs in 3D grid at each datetime (hourly time).
             - [layer_summary.csv](layer_summary.csv) is the volume of ISSRs in 2D/Horizontal grids (each pressure level) at each datetime (hourly time).
