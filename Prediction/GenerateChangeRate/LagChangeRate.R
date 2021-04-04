@@ -23,6 +23,14 @@ write.csv(output,"~/Desktop/master/4 DAEN690/YES_CSV/prediction_data360.csv", ro
 
 ############ FL340
 FL340_summary <- read.csv("FL340_summary.csv")
+
+id <- data.frame("datetime_id" = c(1:5496))
+
+FL340_summary <- FL340_summary %>%
+  right_join(id, by="datetime_id")  %>%
+  select(datetime_id, volume_of_ISSR) %>%
+  replace_na(list(volume_of_ISSR= 0))
+
 output <- FL340_summary %>%
   select(datetime_id, volume_of_ISSR) %>%
   rename(percent_volume = volume_of_ISSR )
@@ -43,6 +51,14 @@ write.csv(output,"~/Desktop/master/4 DAEN690/YES_CSV/prediction_data340.csv", ro
 
 ############ FL390
 FL390_summary <- read.csv("FL390_summary.csv")
+
+id <- data.frame("datetime_id" = c(1:5496))
+
+FL390_summary <- FL390_summary %>%
+  right_join(id, by="datetime_id")  %>%
+  select(datetime_id, volume_of_ISSR) %>%
+  replace_na(list(volume_of_ISSR= 0))
+
 output <- FL390_summary %>%
   select(datetime_id, volume_of_ISSR) %>%
   rename(percent_volume = volume_of_ISSR )
