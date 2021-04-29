@@ -1,6 +1,6 @@
 # CapstoneProject: Machine Learning Forecasting for ISSR Volumetric Evolution
 
-- DAEN-690-Spring 2021
+- GMU-DAEN-690-Spring 2021
 - **Team Dragon**: Long Zhang, Dohyung Lee, Mohammad Ridwan, Wei Wang, Wenpeng Hao, Baizhong Hou
 - **Mentor**: Prof. Lance Sherry
 - **Instructor**: Prof. F. Brett Berlin 
