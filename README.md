@@ -38,7 +38,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 
 1. Use `urlretrieve` from `urllib.request` to download files
 2. Use `pygrib` to parse the data
-3. [collect_links_names.py](1 download data/download_data.py) is the code to export [linkFile.txt](linkFile.txt) and [nameFile.txt](nameFile.txt) of all grib2 files from 17/05/2020 to 12/31/2020.
+3. [collect_links_names.py](download_data.py) is the code to export [linkFile.txt](linkFile.txt) and [nameFile.txt](nameFile.txt) of all grib2 files from 17/05/2020 to 12/31/2020.
 4. **To download all grib2 files from 17/05/2020 to 12/31/2020**, please
     - Download the two files first: [linkFile.txt](linkFile.txt) and [nameFile.txt](nameFile.txt)
     - Download and run the .py file: [download_data.py](download_data.py)
@@ -109,6 +109,42 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
     - Use the result in last step to make the scatter plot in Tableau.
     - [Tableau Plot](https://public.tableau.com/views/VisualizationforISSRsatFL360/VisualizationforISSRegionsatFL360from05172020to12312020?:language=en&:display_count=y&publish=yes&:origin=viz_share_link)
    
+
+# 2. Prediction Modeling
+
+1.	Generate input data: lag-i change rate of ISSR percent volume
+    1. Floder: 4 Prediction/1 GeneratedChangeRate
+    2. Code and input data:
+        1. FL340_summary.csv
+        2. FL360_summary.csv
+        3. FL390_summary.csv
+        4. LagChangeRate.R
+    3. Output data:
+        1. prediction_data340.csv --- the data for FL340
+        2. prediction_data360.csv --- the data for FL360
+        3. prediction_data390.csv --- the data for FL390
+3.	Prediction for FL360 using the models trained from FL360 and Prediction for FL340 using the models trained from FL360
+    1. Floder: 4 Prediction/2 fl360 prediction
+    2. Code and input data:
+        1. prediction_data340.csv --- the data for FL340
+        2. prediction_data360.csv --- the data for FL360
+        3. all other ipynb files
+5.	Prediction for FL360 using the models trained from the data from adjacent flight levels.
+    1. Floder: 4 Prediction/3 make-prediction-using-multilayer-data
+    2. Generate the data using:
+        1. prediction_data340.csv --- the data for FL340
+        2. prediction_data360.csv --- the data for FL360
+        3. prediction_data390.csv --- the data for FL390
+        4. prediction_data_V2.R --- code
+    3. Train model on data set prediction_data_V2.csv
+    4. Modeling code: prediction_LR-MLP.R
+7.	Prediction for FL340 using the models trained from FL340
+    1. Floder: 4 Prediction/2 fl340 prediction
+    2. Code and input data:
+        1. prediction_data340.csv --- the data for FL340
+        2. all other ipynb files
+
+
 
 
 
