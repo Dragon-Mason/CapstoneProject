@@ -1,6 +1,10 @@
-# CapstoneProject
+# CapstoneProject: Machine Learning Forecasting for ISSR Volumetric Evolution
 
-**Machine Learning Forecasting for ISSR Volumetric Evolution**
+- DAEN-690-Spring 2021
+- **Team Dragon**: Long Zhang, Dohyung Lee, Mohammad Ridwan, Wei Wang, Wenpeng Hao, Baizhong Hou
+- **Mentor**: Prof. Lance Sherry
+- **Instructor**: Prof. F. Brett Berlin 
+
 
 Ice Super Saturated Region (ISSR) is the atmospheric condition for the formation of Contrail-Cirrus Clouds which are estimated to contribute 2% of the Earth’s total anthropogenic global warming. This project aims to predict the volumetric evolution of ISSRs in each flight level in CONUS, including forecasting for volume change rate and volume magnitude, to help to facilitate the design of the air transportation system. This in turn is likely to help prevent global warming.
 
