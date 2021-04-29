@@ -8,7 +8,7 @@ Website of [RAP](https://rapidrefresh.noaa.gov/)
 The Rapid Refresh (RAP) is the National Oceanic and Atmospheric Administration (NOAA) hourly-updated forecasting system to provide related decision-makings for applications in aviation (and transportation in general), severe weather, and energy, etc. The data in RAP system is collected from commercial aircraft weather data, balloon data, radar data, surface observations, and satellite data. It has different methods to describe map projection (like lambert conformal projection and Polar Stereographic projection), resolution grids (like 13km (337*451 cells), 20km (225*301 cells), 40km (113*151 cells)), and vertical coordinate (like isobaric levels and hybrid-pressure levels). Types of data in the system are **RAP Analysis Data** and **RAP Forecasts Data**. And the format of datasets:  **grib2**
 
 
-- [Website](https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/rapid-refresh-rap)
+- [Database website](https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/rapid-refresh-rap)
 - Type: RAP Analysis Data
 - Grid/Scale: RAP	252 (20km) - Domain
 - Time range: From 17/05/2020 to 12/31/2020
