@@ -38,7 +38,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 
 1. Use `urlretrieve` from `urllib.request` to download files
 2. Use `pygrib` to parse the data
-3. [collect_links_names.py](1 download data/collect_links_names.py) is the code to export [linkFile.txt](linkFile.txt) and [nameFile.txt](nameFile.txt) of all grib2 files from 17/05/2020 to 12/31/2020.
+3. [collect_links_names.py](/1 download data/collect_links_names.py) is the code to export [linkFile.txt](linkFile.txt) and [nameFile.txt](nameFile.txt) of all grib2 files from 17/05/2020 to 12/31/2020.
 4. **To download all grib2 files from 17/05/2020 to 12/31/2020**, please
     - Download the two files first: [linkFile.txt](linkFile.txt) and [nameFile.txt](nameFile.txt)
     - Download and run the .py file: [download_data.py](download_data.py)
