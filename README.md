@@ -5,9 +5,11 @@ Machine Learning Forecasting of Ice Super Saturated Regions (ISSR) in the Atmosp
 ## 1.1. Overview
 Website of [RAP](https://rapidrefresh.noaa.gov/)
 
-Originally, we want to use the data with **40-km resolution** (Horizontal grid: 225*301 cells) and **pressure levels** (the third row) in [this website](https://www.nco.ncep.noaa.gov/pmb/products/rap/). However, the provided [NCEP FTP SERVER](ftp://ftp.ncep.noaa.gov/pub/data/nccf/com/rap/prod) stores the real-time data. It only includes the data of past 2 days. And there is only [the archive of hybrid (native) grids](http://soostrc.comet.ucar.edu/data/grib/rap/), which don’t have variable “relative humidity”.  
+The Rapid Refresh (RAP) is the National Oceanic and Atmospheric Administration (NOAA) hourly-updated forecasting system to provide related decision-makings for applications in aviation (and transportation in general), severe weather, and energy, etc. The data in RAP system is collected from commercial aircraft weather data, balloon data, radar data, surface observations, and satellite data. It has different methods to describe map projection (like lambert conformal projection and Polar Stereographic projection), resolution grids (like 13km (337*451 cells), 20km (225*301 cells), 40km (113*151 cells)), and vertical coordinate (like isobaric levels and hybrid-pressure levels). Types of data in the system are **RAP Analysis Data** and **RAP Forecasts Data**. And the format of datasets:  **grib2**
 
-So, we will use the datasets in [this website](https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/rapid-refresh-rap). 
+
+- [Website](https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/rapid-refresh-rap)
+- Type: RAP Analysis Data
 - Grid/Scale: RAP	252 (20km) - Domain
 - Time range: From 17/05/2020 to 12/31/2020
 - The data at 19:00 on 2020/12/11 is missing. So, we use the 1-hour forecasting data at 18:00 to estimate the data at 19:00.
@@ -17,7 +19,7 @@ So, we will use the datasets in [this website](https://www.ncdc.noaa.gov/data-ac
 
 To reduce the number of data cells for analysis without losing fidelity (i.e. accuracy), we will combine adjacent 20kmx20km cells to make 40kmx40km. 
 
-[This file](explore_data.py) is the code of data exploration (grib2).
+[explore_data.py](explore_data.py) is the code of data exploration for .grib2 format file.
 
 ## 1.2. Download datasets
 
