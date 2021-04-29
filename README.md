@@ -38,7 +38,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 
 1. Use `urlretrieve` from `urllib.request` to download files
 2. Use `pygrib` to parse the data
-3. [This](collect_links_names.py) is the code to export [links](linkFile.txt) and [names](nameFile.txt) of all grib2 files from 17/05/2020 to 12/31/2020.
+3. [collect_links_names.py](collect_links_names.py) is the code to export [linkFile.txt](linkFile.txt) and [nameFile.txt](nameFile.txt) of all grib2 files from 17/05/2020 to 12/31/2020.
 4. **To download all grib2 files from 17/05/2020 to 12/31/2020**, please
     - Download the two files first: [linkFile.txt](linkFile.txt) and [nameFile.txt](nameFile.txt)
     - Download and run the .py file: [download_data.py](download_data.py)
@@ -65,7 +65,7 @@ To reduce the number of data cells for analysis without losing fidelity (i.e. ac
 2. Combine cells, label issr
 3. Output a csv file with all records for each grib2 file
 4. Output a csv file with only 'Y' records for each grib2 file
-5. [Code](data_processing.py)
+5. [Code: data_processing.py](data_processing.py)
     - Estimated time: 75s each grib2 file
     - Estimated size: 86 Mb for all records/ 200 Kb for ‘Y’ records
     - Totally: 5496 files
