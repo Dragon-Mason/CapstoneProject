@@ -14,12 +14,30 @@ output:
 
 ```{r setup, include=FALSE}
 ```
+**George Mason University**
 
-**DAEN-690-DL3-TeamDragon:** Long, Iwan, Lee, Wei, Wenpeng, and Baizhong
+**DAEN-690-DL3-TeamDragon:** Long Zhang, Dohyung Lee, Mohammad Ridwan, Wei Wang, Wenpeng Hao, Baizhong Hou
 
 **Course Instructor:** Prof. F. Berlin
 
-**Mentors:** Prof. Lance Sherry and Sam Ansari
+**Mentors/Sponsors:** Prof. Lance Sherry and Dr. Amy Rose
+
+**Find Us:**
+
+- Long Zhang: lzhang30@gmu.edu
+- Iwan: mridwan@gmu.edu
+- Lee: dlee62@gmu.edu
+- Wenpeng: whao@gmu.edu
+- Baizhong: bhou@gmu.edu
+- Wei: wwang29@gmu.edu
+- Prof. Lance Sherry: lsherry@gmu.edu
+- Dr. Amy Rose: arose20@gmu.edu
+- Prof. F. Brett Berlin: fberlin@gmu.edu
+
+**GitHub:** https://github.com/Dragon-Mason/CapstoneProject
+
+**Tableau Interactive Plot:** https://public.tableau.com/profile/long.zhang#!/vizhome/VisualizationforISSRsatFL360/VisualizationforISSRegionsatFL360from05172020to12312020
+
 
 
 # 1. Introduction
@@ -62,6 +80,9 @@ longitude_summary <- read.csv("longitude_summary.csv")
 # longitude_summary
 
 FL360_summary <- read.csv('FL360_summary.csv')
+FL340_summary <- read.csv('FL340_summary.csv')
+FL390_summary <- read.csv('FL390_summary.csv')
+FL340_360_390_summary <- read.csv('FL340_360_390_summary.csv')
 
 ```
 
@@ -97,13 +118,27 @@ ggplot(data = task2, mapping = aes(x = datetime_id, y = volume_of_ISSR, fill = m
   ggtitle("Trend of hourly updated volume_of_ISSR")
 ```
 
-## hour(data)
+
+
+## hour2
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(data = task2, mapping = aes(x = datetime_id, y = volume_of_ISSR, col=month)) +
+  # geom_bar(stat = "identity") +
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("volume_of_ISSR (%)") + xlab("Hourly Datetime") +
+  ggtitle("Hourly updated volume_of_ISSR")
+```
+
+## hour and hour2 (data)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 task2
 
 ```
+
 
 ## day
 
@@ -460,7 +495,8 @@ task88
 
 ## pressure level and flight level
 
-The transformation formula is from [this website.](https://en.wikipedia.org/wiki/Atmospheric_pressure#:~:text=As%20elevation%20increases%2C%20there%20is,1%20N%2Fm2)
+- The transformation formula is from [this website.](https://en.wikipedia.org/wiki/Atmospheric_pressure#:~:text=As%20elevation%20increases%2C%20there%20is,1%20N%2Fm2)
+- Barometric formula
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -621,11 +657,194 @@ longitude_month
 
 ```
 
-# 8. Analysis for ISSR volume at FL360 {.tabset}
+
+# 8. Visualization for flight levels {.tabset .tabset-fade .tabset-pills}
+
+
+## All flight levels
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+
+task88 <- layer_summary %>%
+  mutate(month = floor(date/100)%%100) %>%
+  left_join(month_days_df, by = "month") %>%
+  left_join(FL, by = c("pressure_level" = "Pressure")) %>%
+  group_by(month, Flight.Level) %>%
+  summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/min(month_days)/24 ) %>%
+  arrange(Flight.Level)
+task88$Flight.Level <- factor(task88$Flight.Level)
+task88$month <- factor(task88$month)
+# task88
+
+ggplot(data = task88, mapping = aes(x = Flight.Level, y =avg_volume_of_ISSR, fill = month)) +
+  geom_bar(stat = "identity", position = "dodge") + 
+  labs(title = "Volume of ISSRs in different months by flight levels",
+       x = "Flight Levels",
+       y = "Volume of ISSRs (%)") +
+  theme(axis.text.x = element_text(angle = 45, face="bold"),
+        axis.text.y = element_text(face="bold")) +
+  theme(plot.title = element_text(size = 15, face="bold.italic"),
+        axis.title.x = element_text(face="bold"),
+        axis.title.y = element_text(face="bold"))
+
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+task88
+
+```
+
+
+## FL340 {.tabset}
+
+Visualization for ISSR volume at FL340
+
+### Hourly1
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_summary_hour <- FL340_summary
+FL340_summary_hour$month<-factor(FL340_summary_hour$month)
+
+ggplot(data = FL340_summary_hour, mapping = aes(x = datetime_id, y = volume_of_ISSR, fill = month)) +
+  geom_bar(stat = "identity") +
+  theme( axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+  ylab("volume_of_ISSR (%)") + xlab("Hourly Datetime") +
+  ggtitle("Hourly updated volume_of_ISSR at FL340")
+  
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_summary_hour
+```
 
 
 
-## Hourly1
+### Hourly2
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(data = FL340_summary_hour, mapping = aes(x = datetime_id, y = volume_of_ISSR, col=month)) +
+  # geom_bar(stat = "identity") +
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("volume_of_ISSR (%)") + xlab("Hourly Datetime") +
+  ggtitle("Hourly updated volume_of_ISSR at FL340")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_summary_hour
+```
+  
+
+
+### Daily
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_summary_day <- FL340_summary %>%
+  group_by(date_id) %>%
+  summarise(month = min(month),
+            day = min(day),
+            avg_volume_of_ISSR = sum(volume_of_ISSR)/24)
+FL340_summary_day$month<-factor(FL340_summary_day$month)  
+
+ggplot(data = FL340_summary_day, mapping = aes(x = day, y = avg_volume_of_ISSR, col=month)) +
+  # geom_bar(stat = "identity") +
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("avg_volume_of_ISSR (%)") + xlab("Day") +
+  ggtitle("Daily avgerage volume_of_ISSR at FL340")
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_summary_day
+```
+
+### Monthly
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+FL340_summary_month <- FL340_summary %>%
+  left_join(month_days_df, by = "month") %>%
+  group_by(month) %>%
+  summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/min(month_days)/24)
+FL340_summary_month$month<-factor(FL340_summary_month$month)  
+
+ggplot(data = FL340_summary_month, mapping = aes(x = month, y = avg_volume_of_ISSR, fill= month)) +
+  geom_bar(stat = "identity") +
+  ylab("avg_volume_of_ISSR (%)") + xlab("Month") +
+  ggtitle("Monthly average volume_of_ISSR at FL340") +
+  geom_text(aes(label = round(avg_volume_of_ISSR, 4)),
+            vjust = -1.1, size = 3,
+            show.legend = FALSE)
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_summary_month
+```
+
+
+
+
+### midnight and midday
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+midnight_noon <- FL340_summary %>%
+  filter(hour == 0 | hour == 12)
+midnight_noon$hour <- factor(midnight_noon$hour)
+
+ggplot(midnight_noon, aes(x = day, y = volume_of_ISSR, col=hour)) + 
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("volume_of_ISSR (%)") + xlab("Day") +
+  ggtitle("Volume_of_ISSR at midnight and midday at FL340")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+midnight_noon
+```
+
+### each hour
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+midnight_noon2 <- FL340_summary %>%
+  # filter(hour == 0 | hour == 12) %>%
+  left_join(month_days_df, by = "month") %>%
+  group_by(month, hour) %>%
+  summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/min(month_days))
+midnight_noon2$hour <- factor(midnight_noon2$hour)
+
+ggplot(midnight_noon2, aes(x = month, y = avg_volume_of_ISSR, col=hour)) + 
+  geom_line() +
+  ylab("Monthly average volume_of_ISSR (%)") + xlab("Months") +
+  ggtitle("Monthly average volume_of_ISSR at each hour at FL340")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+midnight_noon2
+```
+
+
+
+
+
+
+
+## FL360 {.tabset}
+
+Visualization for ISSR volume at FL360
+
+### Hourly1
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 FL360_summary_hour <- FL360_summary
@@ -645,7 +864,8 @@ FL360_summary_hour
 ```
 
 
-## Hourly2
+
+### Hourly2
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(data = FL360_summary_hour, mapping = aes(x = datetime_id, y = volume_of_ISSR, col=month)) +
   # geom_bar(stat = "identity") +
@@ -662,7 +882,7 @@ FL360_summary_hour
   
 
 
-## Daily
+### Daily
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 FL360_summary_day <- FL360_summary %>%
   group_by(date_id) %>%
@@ -685,7 +905,7 @@ ggplot(data = FL360_summary_day, mapping = aes(x = day, y = avg_volume_of_ISSR, 
 FL360_summary_day
 ```
 
-## Monthly
+### Monthly
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
@@ -713,7 +933,7 @@ FL360_summary_month
 
 
 
-## midnight and midday
+### midnight and midday
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 midnight_noon <- FL360_summary %>%
@@ -732,7 +952,7 @@ ggplot(midnight_noon, aes(x = day, y = volume_of_ISSR, col=hour)) +
 midnight_noon
 ```
 
-## each hour
+### each hour
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
                            month_days = c(15,30,31,31,30,31,30,31))
@@ -754,7 +974,273 @@ ggplot(midnight_noon2, aes(x = month, y = avg_volume_of_ISSR, col=hour)) +
 midnight_noon2
 ```
 
+## FL390 {.tabset}
 
+Visualization for ISSR volume at FL390
+
+### Hourly1
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL390_summary_hour <- FL390_summary
+FL390_summary_hour$month<-factor(FL390_summary_hour$month)
+
+ggplot(data = FL390_summary_hour, mapping = aes(x = datetime_id, y = volume_of_ISSR, fill = month)) +
+  geom_bar(stat = "identity") +
+  theme( axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+  ylab("volume_of_ISSR (%)") + xlab("Hourly Datetime") +
+  ggtitle("Hourly updated volume_of_ISSR at FL390")
+  
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL390_summary_hour
+```
+
+
+
+### Hourly2
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(data = FL390_summary_hour, mapping = aes(x = datetime_id, y = volume_of_ISSR, col=month)) +
+  # geom_bar(stat = "identity") +
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("volume_of_ISSR (%)") + xlab("Hourly Datetime") +
+  ggtitle("Hourly updated volume_of_ISSR at FL390")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL390_summary_hour
+```
+  
+
+
+### Daily
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL390_summary_day <- FL390_summary %>%
+  group_by(date_id) %>%
+  summarise(month = min(month),
+            day = min(day),
+            avg_volume_of_ISSR = sum(volume_of_ISSR)/24)
+FL390_summary_day$month<-factor(FL390_summary_day$month)  
+
+ggplot(data = FL390_summary_day, mapping = aes(x = day, y = avg_volume_of_ISSR, col=month)) +
+  # geom_bar(stat = "identity") +
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("avg_volume_of_ISSR (%)") + xlab("Day") +
+  ggtitle("Daily avgerage volume_of_ISSR at FL390")
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL390_summary_day
+```
+
+### Monthly
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+FL390_summary_month <- FL390_summary %>%
+  left_join(month_days_df, by = "month") %>%
+  group_by(month) %>%
+  summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/min(month_days)/24)
+FL390_summary_month$month<-factor(FL390_summary_month$month)  
+
+ggplot(data = FL390_summary_month, mapping = aes(x = month, y = avg_volume_of_ISSR, fill= month)) +
+  geom_bar(stat = "identity") +
+  ylab("avg_volume_of_ISSR (%)") + xlab("Month") +
+  ggtitle("Monthly average volume_of_ISSR at FL390") +
+  geom_text(aes(label = round(avg_volume_of_ISSR, 4)),
+            vjust = -1.1, size = 3,
+            show.legend = FALSE)
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL390_summary_month
+```
+
+
+
+
+### midnight and midday
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+midnight_noon <- FL390_summary %>%
+  filter(hour == 0 | hour == 12)
+midnight_noon$hour <- factor(midnight_noon$hour)
+
+ggplot(midnight_noon, aes(x = day, y = volume_of_ISSR, col=hour)) + 
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("volume_of_ISSR (%)") + xlab("Day") +
+  ggtitle("Volume_of_ISSR at midnight and midday at FL390")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+midnight_noon
+```
+
+### each hour
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+midnight_noon2 <- FL390_summary %>%
+  # filter(hour == 0 | hour == 12) %>%
+  left_join(month_days_df, by = "month") %>%
+  group_by(month, hour) %>%
+  summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/min(month_days))
+midnight_noon2$hour <- factor(midnight_noon2$hour)
+
+ggplot(midnight_noon2, aes(x = month, y = avg_volume_of_ISSR, col=hour)) + 
+  geom_line() +
+  ylab("Monthly average volume_of_ISSR (%)") + xlab("Months") +
+  ggtitle("Monthly average volume_of_ISSR at each hour at FL390")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+midnight_noon2
+```
+
+## FL340+FL360+FL390 {.tabset}
+
+Visualization for ISSR volume in the three layers: FL340+FL360+FL390
+
+### Hourly1
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_360_390_summary_hour <- FL340_360_390_summary
+FL340_360_390_summary_hour$month<-factor(FL340_360_390_summary_hour$month)
+
+ggplot(data = FL340_360_390_summary_hour, mapping = aes(x = datetime_id, y = volume_of_ISSR, fill = month)) +
+  geom_bar(stat = "identity") +
+  theme( axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+  ylab("volume_of_ISSR (%)") + xlab("Hourly Datetime") +
+  ggtitle("Hourly updated volume_of_ISSR at FL340_360_390")
+  
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_360_390_summary_hour
+```
+
+
+
+### Hourly2
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(data = FL340_360_390_summary_hour, mapping = aes(x = datetime_id, y = volume_of_ISSR, col=month)) +
+  # geom_bar(stat = "identity") +
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("volume_of_ISSR (%)") + xlab("Hourly Datetime") +
+  ggtitle("Hourly updated volume_of_ISSR at FL340_360_390")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_360_390_summary_hour
+```
+  
+
+
+### Daily
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_360_390_summary_day <- FL340_360_390_summary %>%
+  group_by(date_id) %>%
+  summarise(month = min(month),
+            day = min(day),
+            avg_volume_of_ISSR = sum(volume_of_ISSR)/24)
+FL340_360_390_summary_day$month<-factor(FL340_360_390_summary_day$month)  
+
+ggplot(data = FL340_360_390_summary_day, mapping = aes(x = day, y = avg_volume_of_ISSR, col=month)) +
+  # geom_bar(stat = "identity") +
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("avg_volume_of_ISSR (%)") + xlab("Day") +
+  ggtitle("Daily avgerage volume_of_ISSR at FL340_360_390")
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_360_390_summary_day
+```
+
+### Monthly
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+FL340_360_390_summary_month <- FL340_360_390_summary %>%
+  left_join(month_days_df, by = "month") %>%
+  group_by(month) %>%
+  summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/min(month_days)/24)
+FL340_360_390_summary_month$month<-factor(FL340_360_390_summary_month$month)  
+
+ggplot(data = FL340_360_390_summary_month, mapping = aes(x = month, y = avg_volume_of_ISSR, fill= month)) +
+  geom_bar(stat = "identity") +
+  ylab("avg_volume_of_ISSR (%)") + xlab("Month") +
+  ggtitle("Monthly average volume_of_ISSR at FL340_360_390") +
+  geom_text(aes(label = round(avg_volume_of_ISSR, 4)),
+            vjust = -1.1, size = 3,
+            show.legend = FALSE)
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+FL340_360_390_summary_month
+```
+
+
+
+
+### midnight and midday
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+midnight_noon <- FL340_360_390_summary %>%
+  filter(hour == 0 | hour == 12)
+midnight_noon$hour <- factor(midnight_noon$hour)
+
+ggplot(midnight_noon, aes(x = day, y = volume_of_ISSR, col=hour)) + 
+  geom_line() +
+  facet_wrap(~ month, nrow = 2,ncol = 4, scales = "free_x") +
+  ylab("volume_of_ISSR (%)") + xlab("Day") +
+  ggtitle("Volume_of_ISSR at midnight and midday at FL340_360_390")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+midnight_noon
+```
+
+### each hour
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+month_days_df = data.frame(month = c(5,6,7,8,9,10,11,12),
+                           month_days = c(15,30,31,31,30,31,30,31))
+midnight_noon2 <- FL340_360_390_summary %>%
+  # filter(hour == 0 | hour == 12) %>%
+  left_join(month_days_df, by = "month") %>%
+  group_by(month, hour) %>%
+  summarise(avg_volume_of_ISSR = sum(volume_of_ISSR)/min(month_days))
+midnight_noon2$hour <- factor(midnight_noon2$hour)
+
+ggplot(midnight_noon2, aes(x = month, y = avg_volume_of_ISSR, col=hour)) + 
+  geom_line() +
+  ylab("Monthly average volume_of_ISSR (%)") + xlab("Months") +
+  ggtitle("Monthly average volume_of_ISSR at each hour at FL340_360_390")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+midnight_noon2
+```
 
 
 
