@@ -2,8 +2,20 @@
 
 - GMU-DAEN-690-Spring 2021
 - **Team Dragon**: Long Zhang, Dohyung Lee, Mohammad Ridwan, Wei Wang, Wenpeng Hao, Baizhong Hou
-- **Mentor**: Prof. Lance Sherry
+- **Mentors/Sponsors**: Prof. Lance Sherry and Dr. Amy Rose
 - **Instructor**: Prof. F. Brett Berlin 
+- **Find us:**
+    - Long Zhang: lzhang30@gmu.edu
+    - Iwan: mridwan@gmu.edu
+    - Lee: dlee62@gmu.edu
+    - Wenpeng: whao@gmu.edu
+    - Baizhong: bhou@gmu.edu
+    - Wei: wwang29@gmu.edu
+    - Prof. Lance Sherry: lsherry@gmu.edu
+    - Dr. Amy Rose: arose20@gmu.edu
+    - Prof. F. Brett Berlin: fberlin@gmu.edu
+ 
+
 
 
 Ice Super Saturated Region (ISSR) is the atmospheric condition for the formation of Contrail-Cirrus Clouds which are estimated to contribute 2% of the Earth’s total anthropogenic global warming. This project aims to predict the volumetric evolution of ISSRs in each flight level in CONUS, including forecasting for volume change rate and volume magnitude, to help to facilitate the design of the air transportation system. This in turn is likely to help prevent global warming.
