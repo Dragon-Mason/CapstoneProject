@@ -14,7 +14,10 @@
     - Prof. Lance Sherry: lsherry@gmu.edu
     - Dr. Amy Rose: arose20@gmu.edu
     - Prof. F. Brett Berlin: fberlin@gmu.edu
- 
+- **GitHub:** https://github.com/Dragon-Mason/CapstoneProject. 
+- **Data Dashboard:** https://rpubs.com/long97/737625
+- **Tableau Interactive Plot:** https://public.tableau.com/profile/long.zhang#!/vizhome/VisualizationforISSRsatFL360/VisualizationforISSRegionsatFL360from05172020to12312020
+
 
 
 
